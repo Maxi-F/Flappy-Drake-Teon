@@ -1,15 +1,7 @@
-#include "raylib/raylib.h"
-
+#include "GameManagement/Gameloop.h"
 
 int main()
 {
-	InitWindow(1280,720, "Flappy Drake");
-
-	while (!WindowShouldClose())
-	{
-
-	}
-	CloseWindow();
-
+	flappyBird::RunGame();
 	return 0;
 }
