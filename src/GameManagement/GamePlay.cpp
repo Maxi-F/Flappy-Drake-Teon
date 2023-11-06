@@ -4,6 +4,8 @@
 #include "GameManagement/GameData.h"
 #include "Objects/Player.h"
 #include "Objects/Obstacle.h"
+#include "GameManagement/CollisionHandler.h"
+#include "GameManagement/UI.h"
 
 namespace flappyBird
 {
@@ -13,20 +15,22 @@ namespace flappyBird
 
 		void Start()
 		{
-			player::Start(gd.player);
-			obstacle::Start(gd.obstacle);
+			player::Start();
+			obstacle::Start();
 		}
 		void Update()
 		{
-			player::Update(gd.player);
-			obstacle::Update(gd.obstacle);
+			player::Update();
+			obstacle::Update();
+			CheckCollisions();
 		}
 		void Draw()
 		{
 			BeginDrawing();
 			ClearBackground(BLACK);
-			player::Draw(gd.player);
-			obstacle::Draw(gd.obstacle);
+			player::Draw();
+			obstacle::Draw();
+			userInterface::DrawVersionText();
 
 			EndDrawing();
 		}

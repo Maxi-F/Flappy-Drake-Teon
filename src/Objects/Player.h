@@ -12,13 +12,18 @@ namespace flappyBird
 			{
 				Vector2 pos;
 				Vector2 size{ 50,50 };
+				float colliderRadius{ 20 };
 
 				float speed{ 350 };
 			};
 
-			void Start(Player& player);
-			void Update(Player& player);
-			void Draw(Player& player);
+			void Start();
+			void Update();
+			void Draw();
+
+			void PlayerTakeDamage();
+			Vector2 GetPosition();
+			float GetRadius();
 		}
 	}
 }

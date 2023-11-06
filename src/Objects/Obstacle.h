@@ -13,11 +13,16 @@ namespace flappyBird
 				Vector2 pos;
 				Vector2 size;
 
+				Rectangle boxCollider;
+				
 				float speed;
 			};
-			void Start(Obstacle& obstacle);
-			void Update(Obstacle& obstacle);
-			void Draw(Obstacle& obstacle);
+			void Start();
+			void Update();
+			void Draw();
+
+			void ResetPosition();
+			Rectangle GetCollider();
 
 		}
 	}

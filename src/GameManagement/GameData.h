@@ -8,8 +8,7 @@ namespace flappyBird
 	{
 		struct GameData
 		{
-			player::Player player;
-			obstacle::Obstacle obstacle;
+
 		};
 	}
 }
