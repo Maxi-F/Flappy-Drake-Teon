@@ -13,7 +13,10 @@ namespace flappyBird
 				Vector2 pos;
 				Vector2 size;
 
-				Rectangle boxCollider;
+				Rectangle upperBoxCollider;
+				Rectangle lowerBoxCollider;
+
+				const float obstacleOpeningSize = 120;
 				
 				float speed;
 			};
@@ -22,7 +25,8 @@ namespace flappyBird
 			void Draw();
 
 			void ResetPosition();
-			Rectangle GetCollider();
+			Rectangle GetUpperCollider();
+			Rectangle GetLowerCollider();
 
 		}
 	}

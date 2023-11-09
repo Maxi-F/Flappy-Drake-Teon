@@ -38,9 +38,9 @@ namespace flappyBird
 				ResetPos();
 			}
 
-			Vector2 GetPosition()
+			Vector2 GetColliderPosition()
 			{
-				return player.pos;
+				return { player.pos.x + player.size.x / 2 ,player.pos.y + player.size.y / 2 };
 			}
 
 			float GetRadius()

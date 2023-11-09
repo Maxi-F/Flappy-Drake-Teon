@@ -22,7 +22,7 @@ namespace flappyBird
 			void Draw();
 
 			void PlayerTakeDamage();
-			Vector2 GetPosition();
+			Vector2 GetColliderPosition();
 			float GetRadius();
 		}
 	}

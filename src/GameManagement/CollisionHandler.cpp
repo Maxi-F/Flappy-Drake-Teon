@@ -11,7 +11,7 @@ namespace flappyBird
 	{
 		void CheckCollisions()
 		{
-			if (CheckCollisionCircleRec(player::GetPosition(), player::GetRadius(), obstacle::GetCollider()))
+			if (CheckCollisionCircleRec(player::GetColliderPosition(), player::GetRadius(), obstacle::GetUpperCollider()) || CheckCollisionCircleRec(player::GetColliderPosition(), player::GetRadius(), obstacle::GetLowerCollider()))
 			{
 				player::Start();
 				obstacle::ResetPosition();
