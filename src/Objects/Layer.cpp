@@ -19,15 +19,20 @@ namespace flappyBird
 				Rectangle textureSource;
 			};
 
-			static Layer ground;
-			static Layer leaves;
-			static Layer firstLineTrees;
-			static Layer secondLineTrees;
-			static Layer backLineTrees;
+			static const int LAYERS_ROLL_QTY = 2;
+			static Layer ground[LAYERS_ROLL_QTY];
+			static Layer leaves[LAYERS_ROLL_QTY];
+			static Layer firstLineTrees[LAYERS_ROLL_QTY];
+			static Layer secondLineTrees[LAYERS_ROLL_QTY];
+			static Layer backLineTrees[LAYERS_ROLL_QTY];
 
-			void SetLayer(Layer& layer, TextureIdentifier id, int layerDepth);
+			/*void SetLayer(Layer& layer, TextureIdentifier id, int layerDepth);
 			void UpdateLayer(Layer& layer, float speed);
-			void DrawLayer(Layer& layer);
+			void DrawLayer(Layer& layer);*/
+
+			void SetLayer(Layer layer[], TextureIdentifier id, int layerDepth);
+			void UpdateLayer(Layer layer[], float speed);
+			void DrawLayer(Layer layer[]);
 
 			void SetAllLayers()
 			{
@@ -56,30 +61,41 @@ namespace flappyBird
 				DrawLayer(leaves);
 			}
 
-			void SetLayer(Layer& layer, TextureIdentifier id, int layerDepth)
+			void SetLayer(Layer layer[], TextureIdentifier id, int layerDepth)
 			{
-				layer.order = layerDepth;
-				layer.pos = { 0,0 };
-				layer.texture = GetTexture(id);
-				layer.textureSource.width = static_cast<float>(ground.texture.width);
-				layer.textureSource.height = static_cast<float>(ground.texture.height);
+				for (int i = 0; i < LAYERS_ROLL_QTY; i++)
+				{
+					layer[i].order = layerDepth;
+					layer[i].texture = GetTexture(id);
+					layer[i].textureSource.width = static_cast<float>(layer[i].texture.width);
+					layer[i].textureSource.height = static_cast<float>(layer[i].texture.height);
+					layer[i].pos = { 0 + layer[i].textureSource.width * i,0 };
+				}
 			}
 
-			void UpdateLayer(Layer& layer, float speed)
+			void UpdateLayer(Layer layer[], float speed)
 			{
-				layer.pos.x -= speed * layer.order * GetFrameTime();
-				if (layer.pos.x == -layer.textureSource.width)
-					layer.pos.x = static_cast<float>(GetScreenWidth());
+				for (int i = 0; i < LAYERS_ROLL_QTY; i++)
+				{
+					layer[i].pos.x -= speed * layer[i].order * GetFrameTime();
+					if (layer[i].pos.x <= -GetScreenWidth())
+						layer[i].pos.x = static_cast<float>(GetScreenWidth());
+				}
+
 			}
 
-			void DrawLayer(Layer& layer)
+			void DrawLayer(Layer layer[])
 			{
 				static float screenWidth = static_cast<float>(GetScreenWidth());
 				static float screenHeight = static_cast<float>(GetScreenHeight());
-				Rectangle firstLayerDest = { layer.pos.x, layer.pos.y, screenWidth, screenHeight };
-				Rectangle secondLayerDest = { layer.pos.x + layer.textureSource.width, layer.pos.y, screenWidth, screenHeight };
-				DrawTexturePro(layer.texture, layer.textureSource, firstLayerDest, { 0,0 }, 0, WHITE);
-				DrawTexturePro(layer.texture, layer.textureSource, secondLayerDest, { 0,0 }, 0, WHITE);
+				for (int i = 0; i < LAYERS_ROLL_QTY; i++)
+				{
+					Rectangle dest = { layer[i].pos.x, layer[i].pos.y, screenWidth, screenHeight };
+					//Rectangle firstLayerDest = { layer.pos.x, layer.pos.y, screenWidth, screenHeight };
+					//Rectangle secondLayerDest = { layer.pos.x + layer.textureSource.width, layer.pos.y, screenWidth, screenHeight };
+					DrawTexturePro(layer[i].texture, layer[i].textureSource, dest, { 0,0 }, 0, WHITE);
+					//DrawTexturePro(layer[i].texture, layer[i].textureSource, secondLayerDest, { 0,0 }, 0, WHITE);
+				}
 			}
 		}
 	}
