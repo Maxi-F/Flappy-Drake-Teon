@@ -19,7 +19,7 @@ namespace flappyBird
 				ResetPos();
 			}
 
-			void Update()
+			void Update(bool& shouldReset)
 			{
 				/*if (IsKeyDown(KEY_S))
 					Move(false);
@@ -36,6 +36,9 @@ namespace flappyBird
 				}
 
 				Move();
+
+				if (player.pos.y + player.size.y / 2 >= GetScreenHeight() - player.size.y / 2)
+					shouldReset = true;
 			}
 
 			void Draw()

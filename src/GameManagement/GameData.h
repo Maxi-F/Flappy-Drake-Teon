@@ -8,7 +8,7 @@ namespace flappyBird
 	{
 		struct GameData
 		{
-
+			bool shouldRestart{false};
 		};
 	}
 }

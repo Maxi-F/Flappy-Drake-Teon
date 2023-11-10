@@ -4,8 +4,6 @@ namespace flappyBird
 {
 	namespace game
 	{
-		void Start();
-		void Update();
-		void Draw();
+		void GamePlayLoop(bool& isNewScene);
 	}
 }

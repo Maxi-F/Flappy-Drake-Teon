@@ -14,6 +14,23 @@ namespace flappyBird
 	{
 		static GameData gd;
 
+		void Start();
+		void Update();
+		void Draw();
+
+		void GamePlayLoop(bool& isNewScene)
+		{
+			if (isNewScene || gd.shouldRestart)
+			{
+				game::Start();
+				isNewScene = false;
+				gd.shouldRestart = false;
+			}
+
+			game::Update();
+			game::Draw();
+		}
+
 		void Start()
 		{
 			player::Start();
@@ -22,7 +39,7 @@ namespace flappyBird
 		}
 		void Update()
 		{
-			player::Update();
+			player::Update(gd.shouldRestart);
 			obstacle::Update();
 			backGround::Update();
 			CheckCollisions();

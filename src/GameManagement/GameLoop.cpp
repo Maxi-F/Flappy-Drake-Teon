@@ -13,16 +13,10 @@ namespace flappyBird
 		utilities::SetTextures();
 
 		bool newScene = true;
+		// newScene Should be the result of Scene prevScene == actualScene
 		while (!WindowShouldClose())
 		{
-			if (newScene)
-			{
-				game::Start();
-				newScene = false;
-			}
-
-			game::Update();
-			game::Draw();
+			game::GamePlayLoop(newScene);
 		}
 		CloseWindow();
 	}

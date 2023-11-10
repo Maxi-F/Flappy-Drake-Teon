@@ -21,7 +21,7 @@ namespace flappyBird
 			};
 
 			void Start();
-			void Update();
+			void Update(bool& shouldReset);
 			void Draw();
 
 			void PlayerTakeDamage();
