@@ -9,8 +9,10 @@ namespace flappyBird
 
 			static Player player;
 
+			static const float GRAVITY = 800.0f;
+
 			void ResetPos();
-			void Move(bool goesUp);
+			void Move();
 
 			void Start()
 			{
@@ -19,10 +21,21 @@ namespace flappyBird
 
 			void Update()
 			{
-				if (IsKeyDown(KEY_S))
+				/*if (IsKeyDown(KEY_S))
 					Move(false);
 				else if (IsKeyDown(KEY_W))
-					Move(true);
+					Move(true);*/
+
+				if (player.velocity.y + GRAVITY < player.terminalVelocity)
+					player.velocity.y += GRAVITY * GetFrameTime();
+
+				if (IsKeyPressed(KEY_SPACE) || IsKeyPressed(KEY_UP) || IsKeyPressed(KEY_W))
+				{
+					player.velocity.y = 0;
+					player.velocity.y -= player.jumpForce;
+				}
+
+				Move();
 			}
 
 			void Draw()
@@ -51,14 +64,14 @@ namespace flappyBird
 			void ResetPos()
 			{
 				player.pos = { 50, static_cast<float>(GetScreenHeight()) / 2 };
+				player.velocity.y = 0;
 			}
 
-			void Move(bool goesUp)
+			void Move()
 			{
-				if (goesUp)
-					player.pos.y -= player.speed * GetFrameTime();
-				else
-					player.pos.y += player.speed * GetFrameTime();
+				Vector2 playerMinPos = { player.pos.x,0 };
+				Vector2 playerMaxPos = { player.pos.x, static_cast<float>(GetScreenHeight()) - player.size.y };
+				player.pos = Vector2Clamp(Vector2Add(player.pos, Vector2Scale(player.velocity, GetFrameTime())), playerMinPos, playerMaxPos);
 			}
 		}
 	}
