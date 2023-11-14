@@ -1,11 +1,26 @@
 #include "Objects/Player.h"
 
+#include "GameManagement/TexturesManager.h"
+
 namespace flappyBird
 {
 	namespace game
 	{
 		namespace player
 		{
+			struct Player
+			{
+				Vector2 pos;
+				Vector2 size{ 50,50 };
+				float colliderRadius{ 20 };
+				float angle{0};
+
+				Vector2 velocity{ 0, 0 };
+				float terminalVelocity = 1500;
+				float jumpForce = 400;
+				//float speed{ 350 };
+				bool isPullingUp;
+			};
 
 			static Player player;
 
@@ -45,13 +60,17 @@ namespace flappyBird
 
 			void Draw()
 			{
-				Color playerColor = WHITE;
+				/*Color playerColor = WHITE;
 				if (player.isPullingUp)
 					playerColor = GREEN;
 				else
-					playerColor = WHITE;
+					playerColor = WHITE;*/
+					//DrawRectangle(static_cast<int>(player.pos.x), static_cast<int>(player.pos.y), static_cast<int>(player.size.x), static_cast<int>(player.size.y), playerColor);
+				Texture playerTextureToDraw = utilities::GetTexture(utilities::TextureIdentifier::PlayerIdle);
+				if (player.isPullingUp)
+					playerTextureToDraw = utilities::GetTexture(utilities::TextureIdentifier::PlayerFlying);
 
-				DrawRectangle(static_cast<int>(player.pos.x), static_cast<int>(player.pos.y), static_cast<int>(player.size.x), static_cast<int>(player.size.y), playerColor);
+				DrawTexturePro(playerTextureToDraw, { 0,0,64,64 }, { player.pos.x + player.size.x/2 , player.pos.y + player.size.y / 2, player.size.x, player.size.y }, { player.size.x / 2, player.size.y / 2 }, player.angle, WHITE);
 #ifdef _DEBUG
 				DrawCircleLines(static_cast<int>(player.pos.x + player.size.x / 2), static_cast<int>(player.pos.y + player.size.y / 2), player.colliderRadius, GREEN);
 #endif
@@ -76,6 +95,7 @@ namespace flappyBird
 			{
 				player.pos = { 50, static_cast<float>(GetScreenHeight()) / 2 };
 				player.velocity.y = 0;
+				player.angle = 0;
 			}
 
 			void Move()

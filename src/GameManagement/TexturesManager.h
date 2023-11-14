@@ -11,7 +11,8 @@ namespace flappyBird
 		enum class TextureIdentifier
 		{
 			Default,
-			//Player,
+			PlayerIdle,
+			PlayerFlying,
 			Ground,
 			Leaves,
 			FirstLineTrees,
@@ -22,7 +23,8 @@ namespace flappyBird
 		struct AllTextures
 		{
 			Texture defaultTexture;
-			//Texture player;
+			Texture playerIdle;
+			Texture playerFlying;
 			Texture ground;
 			Texture leaves;
 			Texture firstLineTrees;

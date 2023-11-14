@@ -9,7 +9,8 @@ namespace flappyBird
 		void SetTextures()
 		{
 			textures.defaultTexture = LoadTexture("assets/sprites/DefaultSprite.png");
-			//textures.player = LoadTexture("assets/sprites/Nanobot.png");
+			textures.playerIdle = LoadTexture("assets/sprites/DragonIdle.png");
+			textures.playerFlying = LoadTexture("assets/sprites/DragonFlying.png");
 			textures.ground = LoadTexture("assets/sprites/ground.png");
 			textures.leaves = LoadTexture("assets/sprites/topLeaves.png");
 			textures.firstLineTrees = LoadTexture("assets/sprites/firstTrees.png");
@@ -20,9 +21,12 @@ namespace flappyBird
 		{
 			switch (texture)
 			{
-				/*case TextureIdentifier::Player:
-					return textures.player;
-					break;*/
+			case TextureIdentifier::PlayerIdle:
+				return textures.playerIdle;
+				break;
+			case TextureIdentifier::PlayerFlying:
+				return textures.playerFlying;
+				break;
 			case TextureIdentifier::Ground:
 				return textures.ground;
 				break;
