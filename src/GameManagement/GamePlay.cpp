@@ -70,7 +70,6 @@ namespace flappyBird
 			backGround::Draw();
 			player::Draw();
 			obstacle::Draw();
-			userInterface::DrawVersionText();
 			EndDrawing();
 		}
 

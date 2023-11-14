@@ -1,6 +1,7 @@
 #include "GameManagement/Menu.h"
 
 #include "Objects/Button.h"
+#include "Objects/UI.h"
 //#include "GameManagement/AudioManager.h"
 #include <iostream>
 
@@ -92,6 +93,7 @@ namespace flappyBird
 			{
 				ButtonDraw(button, false);
 			}
+			userInterface::DrawVersionText();
 		}
 		else
 		{
@@ -100,17 +102,19 @@ namespace flappyBird
 
 			int creditsSize = 25;
 			int creditsHorizontalDisplacement = 20;
-			//int creditsSpacing = 120;
+			int creditsSpacing = 120;
 			//const char* santiText = "Player And Asteroids by Santiago Garrido instagram: @tains_art";
+			const char* nicoText = "Programming made by Nicolas Laure: https://nico-drake.itch.io";
 			const char* backGroundText = "Background by Eder Munizz: https://edermunizz.itch.io/free-pixel-art-forest";
-			//const char* InterfaceSoundsText = "Interface Sounds by Kenney https://kenney.nl/assets/interface-sounds";
+			const char* dragonsText = "Dragon sprites by DeepDiveGameStudio https://deepdivegamestudio.itch.io/dragon-asset-pack";
 
 			//DrawText(santiText, creditsHorizontalDisplacement, GetScreenHeight() / 2 - creditsSpacing * 2, creditsSize, WHITE);
-			//DrawText(ImpactSoundsText, creditsHorizontalDisplacement, GetScreenHeight() / 2 - creditsSpacing, creditsSize, WHITE);
+			DrawText(nicoText, creditsHorizontalDisplacement, GetScreenHeight() / 2 - creditsSpacing * 2, creditsSize, WHITE);
+			DrawText(dragonsText, creditsHorizontalDisplacement, GetScreenHeight() / 2 - creditsSpacing, creditsSize, WHITE);
 			DrawText(backGroundText, creditsHorizontalDisplacement, GetScreenHeight() / 2, creditsSize, WHITE);
 			const char* title = "Credits";
 			int titleSize = 70;
-			int verticalDisplacement = 40;
+			int verticalDisplacement = 20;
 			DrawText(title, GetScreenWidth() / 2 - MeasureText(title, titleSize) / 2, verticalDisplacement, titleSize, WHITE);
 
 
