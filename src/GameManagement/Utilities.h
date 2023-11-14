@@ -8,6 +8,11 @@ namespace flappyBird
 {
 	namespace utilities
 	{
-
+		struct Rect
+		{
+			Vector2 position{};
+			float height{};
+			float width{};
+		};
 	}
 }

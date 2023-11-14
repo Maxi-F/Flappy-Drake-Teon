@@ -6,7 +6,7 @@
 #include "Objects/Obstacle.h"
 #include "Objects/BackGround.h"
 #include "GameManagement/CollisionHandler.h"
-#include "GameManagement/UI.h"
+#include "Objects/UI.h"
 
 namespace flappyBird
 {
@@ -18,17 +18,29 @@ namespace flappyBird
 		void Update();
 		void Draw();
 
-		void GamePlayLoop(bool& isNewScene)
+		void PauseUpdate(Scenes& scene);
+		void PauseDraw();
+
+		void GamePlayLoop(bool& enteredNewScene, Scenes& currentScene)
 		{
-			if (isNewScene || gd.shouldRestart)
+			if (enteredNewScene || gd.shouldRestart)
 			{
 				game::Start();
-				isNewScene = false;
-				gd.shouldRestart = false;
+				enteredNewScene = false;
 			}
 
-			game::Update();
-			game::Draw();
+			if (!gd.isPaused)
+			{
+				game::Update();
+				game::Draw();
+			}
+			else
+			{
+				ShowCursor();
+				PauseUpdate(currentScene);
+				PauseDraw();
+			}
+
 		}
 
 		void Start()
@@ -36,6 +48,9 @@ namespace flappyBird
 			player::Start();
 			obstacle::Start();
 			backGround::Start();
+
+			gd.shouldRestart = false;
+			gd.isPaused = false;
 		}
 		void Update()
 		{
@@ -43,7 +58,11 @@ namespace flappyBird
 			obstacle::Update();
 			backGround::Update();
 			CheckCollisions();
+
+			if (IsMouseButtonPressed(2) || IsKeyPressed(KEY_ESCAPE))
+				gd.isPaused = true;
 		}
+
 		void Draw()
 		{
 			BeginDrawing();
@@ -52,6 +71,54 @@ namespace flappyBird
 			player::Draw();
 			obstacle::Draw();
 			userInterface::DrawVersionText();
+			EndDrawing();
+		}
+
+		void PauseUpdate(Scenes& scene)
+		{
+			if (gd.areRulesBeingShown)
+			{
+				if (IsMouseButtonPressed(0))
+				{
+					gd.isPaused = false;
+					gd.areRulesBeingShown = false;
+				}
+			}
+			else if (gd.isGameOver)
+			{
+				ButtonCollisionCheck(gd.menuButton, scene);
+				ResetButtonCollisionCheck(gd.restartButton, gd.shouldRestart);
+			}
+			else
+			{
+				ButtonCollisionCheck(gd.menuButton, scene);
+				if (IsMouseButtonPressed(2) || IsKeyPressed(KEY_ESCAPE))
+				{
+					gd.isPaused = false;
+				}
+			}
+		}
+
+		void PauseDraw()
+		{
+			BeginDrawing();
+
+			ClearBackground(BLACK);
+			Color panelColor = BLACK;
+
+			if (!gd.areRulesBeingShown)
+				panelColor = ColorAlpha(panelColor, 0.010f);
+
+			DrawRectangle(GetScreenWidth() / 2, GetScreenHeight() / 2, GetScreenWidth(), GetScreenHeight(), panelColor);
+
+			/*	if (gd.areRulesBeingShown)
+					RulesDraw();
+				else */
+			if (gd.isGameOver)
+				userInterface::GameOverPanelDraw(gd.menuButton, gd.restartButton);
+			else
+				userInterface::PausePanelDraw(gd.menuButton);
+
 			EndDrawing();
 		}
 	}

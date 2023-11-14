@@ -29,7 +29,7 @@ namespace flappyBird
 				if (player.velocity.y + GRAVITY < player.terminalVelocity)
 					player.velocity.y += GRAVITY * GetFrameTime();
 
-				if (IsKeyPressed(KEY_SPACE) || IsKeyPressed(KEY_UP) || IsKeyPressed(KEY_W))
+				if (IsKeyPressed(KEY_SPACE) || IsKeyPressed(KEY_UP) || IsKeyPressed(KEY_W) || IsMouseButtonPressed(0))
 				{
 					player.velocity.y = 0;
 					player.velocity.y -= player.jumpForce;
