@@ -18,6 +18,7 @@ namespace flappyBird
 				float terminalVelocity = 1500;
 				float jumpForce = 400;
 				//float speed{ 350 };
+				bool isPullingUp;
 			};
 
 			void Start();

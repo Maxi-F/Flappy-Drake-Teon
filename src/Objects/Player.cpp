@@ -39,11 +39,19 @@ namespace flappyBird
 
 				if (player.pos.y + player.size.y / 2 >= GetScreenHeight() - player.size.y / 2)
 					shouldReset = true;
+
+				player.isPullingUp = player.velocity.y < 0;
 			}
 
 			void Draw()
 			{
-				DrawRectangle(static_cast<int>(player.pos.x), static_cast<int>(player.pos.y), static_cast<int>(player.size.x), static_cast<int>(player.size.y), WHITE);
+				Color playerColor = WHITE;
+				if (player.isPullingUp)
+					playerColor = GREEN;
+				else
+					playerColor = WHITE;
+
+				DrawRectangle(static_cast<int>(player.pos.x), static_cast<int>(player.pos.y), static_cast<int>(player.size.x), static_cast<int>(player.size.y), playerColor);
 #ifdef _DEBUG
 				DrawCircleLines(static_cast<int>(player.pos.x + player.size.x / 2), static_cast<int>(player.pos.y + player.size.y / 2), player.colliderRadius, GREEN);
 #endif
