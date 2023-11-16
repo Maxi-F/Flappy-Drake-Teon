@@ -162,6 +162,7 @@
     <ClCompile Include="src\GameManagement\GameLoop.cpp" />
     <ClCompile Include="src\GameManagement\GamePlay.cpp" />
     <ClCompile Include="src\GameManagement\Menu.cpp" />
+    <ClCompile Include="src\GameManagement\ObstaclesManager.cpp" />
     <ClCompile Include="src\GameManagement\TexturesManager.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Objects\BackGround.cpp" />
@@ -177,6 +178,7 @@
     <ClInclude Include="src\GameManagement\Gameloop.h" />
     <ClInclude Include="src\GameManagement\GamePlay.h" />
     <ClInclude Include="src\GameManagement\Menu.h" />
+    <ClInclude Include="src\GameManagement\ObstaclesManager.h" />
     <ClInclude Include="src\GameManagement\SceneManager.h" />
     <ClInclude Include="src\GameManagement\Scenes.h" />
     <ClInclude Include="src\GameManagement\TexturesManager.h" />

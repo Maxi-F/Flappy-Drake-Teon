@@ -2,7 +2,7 @@
 
 #include "GameManagement/Utilities.h"
 
-#include "Objects/Obstacle.h"
+#include "GameManagement/ObstaclesManager.h"
 #include "Objects/Player.h"
 
 namespace flappyBird
@@ -11,10 +11,13 @@ namespace flappyBird
 	{
 		void CheckCollisions()
 		{
-			if (CheckCollisionCircleRec(player::GetColliderPosition(), player::GetRadius(), obstacle::GetUpperCollider()) || CheckCollisionCircleRec(player::GetColliderPosition(), player::GetRadius(), obstacle::GetLowerCollider()))
+			for (int i = 0; i < obstaclesManager::OBSTACLES_QTY; i++)
 			{
-				player::Start();
-				obstacle::ResetPosition();
+				if (CheckCollisionCircleRec(player::GetColliderPosition(), player::GetRadius(), obstaclesManager::GetObstacleUpperCollider(i)) || CheckCollisionCircleRec(player::GetColliderPosition(), player::GetRadius(), obstaclesManager::GetObstacleLowerCollider(i)))
+				{
+					player::Start();
+					obstaclesManager::ResetObstacles();
+				}
 			}
 		}
 	}

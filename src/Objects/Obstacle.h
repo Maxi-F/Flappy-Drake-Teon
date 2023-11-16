@@ -12,22 +12,24 @@ namespace flappyBird
 			{
 				Vector2 pos;
 				Vector2 size;
+				Vector2 offset;
 
 				Rectangle upperBoxCollider;
 				Rectangle lowerBoxCollider;
 
+				bool hasVerticalMovement = false;
+				float verticalSpeed = 200;
 				const float obstacleOpeningSize = 120;
 				
 				float speed;
 			};
-			void Start();
-			void Update();
-			void Draw();
+			void Start(Obstacle& obstacle,float offsetX);
+			void Update(Obstacle& obstacle);
+			void Draw(Obstacle& obstacle);
 
-			void ResetPosition();
-			Rectangle GetUpperCollider();
-			Rectangle GetLowerCollider();
-
+			void ResetPosition(Obstacle& obstacle);
+			Rectangle GetUpperCollider(Obstacle& obstacle);
+			Rectangle GetLowerCollider(Obstacle& obstacle);
 		}
 	}
 }

@@ -6,27 +6,40 @@ namespace flappyBird
 	{
 		namespace obstacle
 		{
-			static Obstacle obstacle;
-			void SetColliderPosition();
+			void SetColliderPosition(Obstacle& obstacle);
+			void SetRectangles(Obstacle& obstacle);
+			void SetStartPosition(Obstacle& obstacle);
 
-			void Start()
+
+			void Start(Obstacle& obstacle, float offsetX)
 			{
+				obstacle.offset.x = offsetX;
 				obstacle.size = { 60, 180 };
-				ResetPosition();
+				SetStartPosition(obstacle);
 				obstacle.speed = 500;
 			}
 
-			void Update()
+			void Update(Obstacle& obstacle)
 			{
 				obstacle.pos.x -= obstacle.speed * GetFrameTime();
 
-				SetColliderPosition();
+				if (obstacle.hasVerticalMovement)
+				{
+					if (obstacle.pos.y + obstacle.size.y / 2 >= GetScreenHeight() || obstacle.pos.y - obstacle.size.y / 2 <= 0)
+						obstacle.verticalSpeed *= -1;
+
+					obstacle.pos.y += obstacle.verticalSpeed * GetFrameTime();
+					SetRectangles(obstacle);
+				}
+
+				SetColliderPosition(obstacle);
+
 
 				if (obstacle.pos.x + obstacle.size.x < 0)
-					ResetPosition();
+					ResetPosition(obstacle);
 			}
 
-			void Draw()
+			void Draw(Obstacle& obstacle)
 			{
 				DrawRectangle(static_cast<int>(obstacle.pos.x), 0, static_cast<int>(obstacle.size.x), static_cast<int>(obstacle.upperBoxCollider.height), WHITE);
 				DrawRectangle(static_cast<int>(obstacle.pos.x), static_cast<int>(obstacle.lowerBoxCollider.y), static_cast<int>(obstacle.size.x), static_cast<int>(obstacle.lowerBoxCollider.height), WHITE);
@@ -36,27 +49,48 @@ namespace flappyBird
 #endif
 			}
 
-			void ResetPosition()
+			void SetStartPosition(Obstacle& obstacle)
 			{
-				//bool doesObstacleSpawnUp = GetRandomValue(0, 1) == 0;
+				float posY = static_cast<float>(GetRandomValue(static_cast<int>(obstacle.obstacleOpeningSize), GetScreenHeight() - static_cast<int>(obstacle.obstacleOpeningSize)));
+				obstacle.pos = { static_cast<float>(GetScreenWidth()) + obstacle.offset.x, posY };
+				SetRectangles(obstacle);
+			}
+
+			void ResetPosition(Obstacle& obstacle)
+			{
+				bool doesObstacleMove = GetRandomValue(0, 10) == 0;
+				if (doesObstacleMove)
+				{
+					obstacle.hasVerticalMovement = true;
+					bool goesUp = GetRandomValue(0, 1) == 1;
+					if ((goesUp && obstacle.verticalSpeed > 0) || (!goesUp && obstacle.verticalSpeed < 0))
+						obstacle.verticalSpeed *= -1;
+				}
+				else
+					obstacle.hasVerticalMovement = false;
+
 				float posY = static_cast<float>(GetRandomValue(static_cast<int>(obstacle.obstacleOpeningSize), GetScreenHeight() - static_cast<int>(obstacle.obstacleOpeningSize)));
 				//float posY = doesObstacleSpawnUp ? 0 : GetScreenHeight() - obstacle.size.y;
 				obstacle.pos = { static_cast<float>(GetScreenWidth()), posY };
+				SetRectangles(obstacle);
+			}
 
+			void SetRectangles(Obstacle& obstacle)
+			{
 				obstacle.upperBoxCollider = { obstacle.pos.x, 0, obstacle.size.x,  obstacle.pos.y - obstacle.obstacleOpeningSize / 2 };
 				obstacle.lowerBoxCollider = { obstacle.pos.x, obstacle.pos.y + obstacle.obstacleOpeningSize / 2, obstacle.size.x, static_cast<float>(GetScreenHeight()) - obstacle.pos.y };
 			}
 
-			Rectangle GetUpperCollider()
+			Rectangle GetUpperCollider(Obstacle& obstacle)
 			{
 				return obstacle.upperBoxCollider;
 			}
-			Rectangle GetLowerCollider()
+			Rectangle GetLowerCollider(Obstacle& obstacle)
 			{
 				return obstacle.lowerBoxCollider;
 			}
 
-			void SetColliderPosition()
+			void SetColliderPosition(Obstacle& obstacle)
 			{
 				obstacle.upperBoxCollider.x = obstacle.pos.x;
 				obstacle.lowerBoxCollider.x = obstacle.pos.x;

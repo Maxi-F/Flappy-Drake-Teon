@@ -3,7 +3,7 @@
 #include "GameManagement/Utilities.h"
 #include "GameManagement/GameData.h"
 #include "Objects/Player.h"
-#include "Objects/Obstacle.h"
+#include "GameManagement/ObstaclesManager.h"
 #include "Objects/BackGround.h"
 #include "GameManagement/CollisionHandler.h"
 #include "Objects/UI.h"
@@ -46,7 +46,7 @@ namespace flappyBird
 		void Start()
 		{
 			player::Start();
-			obstacle::Start();
+			obstaclesManager::Start();
 			backGround::Start();
 
 			gd.shouldRestart = false;
@@ -55,7 +55,7 @@ namespace flappyBird
 		void Update()
 		{
 			player::Update(gd.shouldRestart);
-			obstacle::Update();
+			obstaclesManager::Update();
 			backGround::Update();
 			CheckCollisions();
 
@@ -69,7 +69,7 @@ namespace flappyBird
 			ClearBackground(BLACK);
 			backGround::Draw();
 			player::Draw();
-			obstacle::Draw();
+			obstaclesManager::Draw();
 			EndDrawing();
 		}
 
