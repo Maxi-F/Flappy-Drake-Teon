@@ -13,13 +13,16 @@ namespace flappyBird
 				Vector2 pos;
 				Vector2 size{ 50,50 };
 				float colliderRadius{ 20 };
-				float angle{0};
+				float angle{ 0 };
 
 				Vector2 velocity{ 0, 0 };
 				float terminalVelocity = 1500;
+				float rotationSpeed = 50;
 				float jumpForce = 400;
-				//float speed{ 350 };
+				float jumpAngle = -15;
+				float ceilingBounceForce = 50;
 				bool isPullingUp;
+				bool canPullUp = true;
 			};
 
 			static Player player;
@@ -44,11 +47,25 @@ namespace flappyBird
 				if (player.velocity.y + GRAVITY < player.terminalVelocity)
 					player.velocity.y += GRAVITY * GetFrameTime();
 
+				if (player.pos.y == 0)
+				{
+					player.canPullUp = false;
+					player.velocity.y = player.ceilingBounceForce;
+				}
+				else
+					player.canPullUp = true;
+
+
 				if (IsKeyPressed(KEY_SPACE) || IsKeyPressed(KEY_UP) || IsKeyPressed(KEY_W) || IsMouseButtonPressed(0))
 				{
-					player.velocity.y = 0;
-					player.velocity.y -= player.jumpForce;
+					if (player.canPullUp)
+					{
+						player.velocity.y = 0;
+						player.velocity.y -= player.jumpForce;
+						player.angle = player.jumpAngle;
+					}
 				}
+
 
 				Move();
 
@@ -56,6 +73,9 @@ namespace flappyBird
 					shouldReset = true;
 
 				player.isPullingUp = player.velocity.y < 0;
+
+				if (!player.isPullingUp)
+					player.angle += player.rotationSpeed * GetFrameTime();
 			}
 
 			void Draw()
@@ -70,7 +90,7 @@ namespace flappyBird
 				if (player.isPullingUp)
 					playerTextureToDraw = utilities::GetTexture(utilities::TextureIdentifier::PlayerFlying);
 
-				DrawTexturePro(playerTextureToDraw, { 0,0,64,64 }, { player.pos.x + player.size.x/2 , player.pos.y + player.size.y / 2, player.size.x, player.size.y }, { player.size.x / 2, player.size.y / 2 }, player.angle, WHITE);
+				DrawTexturePro(playerTextureToDraw, { 0,0,64,64 }, { player.pos.x + player.size.x / 2 , player.pos.y + player.size.y / 2, player.size.x, player.size.y }, { player.size.x / 2, player.size.y / 2 }, player.angle, WHITE);
 #ifdef _DEBUG
 				DrawCircleLines(static_cast<int>(player.pos.x + player.size.x / 2), static_cast<int>(player.pos.y + player.size.y / 2), player.colliderRadius, GREEN);
 #endif
