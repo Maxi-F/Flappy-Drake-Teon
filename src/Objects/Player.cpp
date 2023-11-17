@@ -27,7 +27,7 @@ namespace flappyBird
 
 			static Player player;
 
-			static const float GRAVITY = 800.0f;
+			static const float GRAVITY = 1000.0f;
 
 			void ResetPos();
 			void Move();
@@ -44,8 +44,7 @@ namespace flappyBird
 				else if (IsKeyDown(KEY_W))
 					Move(true);*/
 
-				if (player.velocity.y + GRAVITY < player.terminalVelocity)
-					player.velocity.y += GRAVITY * GetFrameTime();
+				player.velocity.y += GRAVITY * GetFrameTime();
 
 				if (player.pos.y == 0)
 				{
