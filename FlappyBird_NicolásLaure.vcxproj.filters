@@ -13,96 +13,132 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Archivos de origen\utils">
+      <UniqueIdentifier>{0e3f02af-b256-4cef-81bd-7f746ffef4e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\utils">
+      <UniqueIdentifier>{a4dfd0b4-77c9-45a8-872d-c9818be7bad7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\managers">
+      <UniqueIdentifier>{1ac8cff4-4ead-4d9b-8bf8-abf19f7d971e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\managers">
+      <UniqueIdentifier>{31acd1cb-4654-47ae-9ede-cfcfa014036a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\uiComponents">
+      <UniqueIdentifier>{aae60f1c-6cd5-4b79-a8c1-774637be26f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\uiComponents">
+      <UniqueIdentifier>{08462f1a-8a49-4d8e-8e61-a5e1f0bcc0f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\entities">
+      <UniqueIdentifier>{e87cc8a3-00e0-4364-989b-425b7329fa41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\entities">
+      <UniqueIdentifier>{540227a6-4fd2-45c8-bb43-455c8aab79eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\screens">
+      <UniqueIdentifier>{45815b32-2329-46bb-8fb8-3764030eef66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\screens">
+      <UniqueIdentifier>{0715321c-2564-4d7e-8324-a5e11ab297f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\game">
+      <UniqueIdentifier>{d9740e75-6545-486d-8dbd-7a578f4ab0d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\game">
+      <UniqueIdentifier>{8568038c-7e70-4775-8528-36c996117ed4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="src\GameManagement\GameLoop.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameManagement\GamePlay.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Objects\Player.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Objects\Obstacle.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameManagement\CollisionHandler.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="src\GameManagement\TexturesManager.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Objects\BackGround.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Objects\Layer.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameManagement\Menu.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Objects\Button.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Objects\UI.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Archivos de origen\managers</Filter>
     </ClCompile>
     <ClCompile Include="src\GameManagement\ObstaclesManager.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Archivos de origen\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Objects\Button.cpp">
+      <Filter>Archivos de origen\uiComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameManagement\CollisionHandler.cpp">
+      <Filter>Archivos de origen\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Objects\BackGround.cpp">
+      <Filter>Archivos de origen\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Objects\Layer.cpp">
+      <Filter>Archivos de origen\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Objects\Player.cpp">
+      <Filter>Archivos de origen\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Objects\Obstacle.cpp">
+      <Filter>Archivos de origen\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameManagement\GamePlay.cpp">
+      <Filter>Archivos de origen\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameManagement\Menu.cpp">
+      <Filter>Archivos de origen\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameManagement\GameLoop.cpp">
+      <Filter>Archivos de origen\game</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Objects\UI.cpp">
+      <Filter>Archivos de origen\screens</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\GameManagement\Gameloop.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GameManagement\GamePlay.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="src\GameManagement\Utilities.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GameManagement\GameData.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Objects\Player.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Objects\Obstacle.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GameManagement\CollisionHandler.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GameManagement\TexturesManager.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Objects\BackGround.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Objects\Layer.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GameManagement\SceneManager.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GameManagement\Scenes.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GameManagement\Menu.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Objects\Button.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Objects\UI.h">
-      <Filter>Archivos de encabezado</Filter>
+      <Filter>Archivos de encabezado\utils</Filter>
     </ClInclude>
     <ClInclude Include="src\GameManagement\ObstaclesManager.h">
-      <Filter>Archivos de encabezado</Filter>
+      <Filter>Archivos de encabezado\managers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameManagement\TexturesManager.h">
+      <Filter>Archivos de encabezado\managers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameManagement\SceneManager.h">
+      <Filter>Archivos de encabezado\managers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Objects\Button.h">
+      <Filter>Archivos de encabezado\uiComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameManagement\CollisionHandler.h">
+      <Filter>Archivos de encabezado\managers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Objects\BackGround.h">
+      <Filter>Archivos de encabezado\managers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Objects\Obstacle.h">
+      <Filter>Archivos de encabezado\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Objects\Player.h">
+      <Filter>Archivos de encabezado\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameManagement\Scenes.h">
+      <Filter>Archivos de encabezado\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameManagement\Menu.h">
+      <Filter>Archivos de encabezado\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameManagement\GamePlay.h">
+      <Filter>Archivos de encabezado\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameManagement\GameData.h">
+      <Filter>Archivos de encabezado\game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameManagement\Gameloop.h">
+      <Filter>Archivos de encabezado\game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Objects\Layer.h">
+      <Filter>Archivos de encabezado\managers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Objects\UI.h">
+      <Filter>Archivos de encabezado\screens</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
