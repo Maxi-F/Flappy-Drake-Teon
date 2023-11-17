@@ -40,6 +40,13 @@ namespace flappyBird
 				Start();
 			}
 
+			void addPointToPlayer(player::Player &player, int obstacleIndex) {
+				if (player.pos.x >= obstacles[obstacleIndex].pos.x && !obstacles[obstacleIndex].countedPoint) {
+					player.points++;
+					obstacles[obstacleIndex].countedPoint = true;
+				}
+			}
+
 			Rectangle GetObstacleUpperCollider(int obstacleIndex)
 			{
 				return obstacle::GetUpperCollider(obstacles[obstacleIndex]);

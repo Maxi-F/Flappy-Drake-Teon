@@ -18,6 +18,7 @@ namespace flappyBird
 				Rectangle lowerBoxCollider;
 
 				bool hasVerticalMovement = false;
+				bool countedPoint = false;
 				float verticalSpeed = 200;
 				const float obstacleOpeningSize = 120;
 				
