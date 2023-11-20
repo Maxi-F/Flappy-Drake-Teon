@@ -61,7 +61,7 @@ namespace flappyBird
 		}
 		void Update()
 		{
-			player::Update(gd.shouldRestart);
+			player::Update(gd.isGameOver);
 			obstaclesManager::Update();
 			backGround::Update();
 			CheckCollisions();
