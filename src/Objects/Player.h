@@ -1,16 +1,14 @@
 #pragma once
 #include "GameManagement/Utilities.h"
 
-
-namespace flappyBird
-{
-	namespace game
-	{
-		namespace player
-		{
+namespace flappyBird {
+	namespace game {
+		namespace player {
 			struct Player
 			{
 				Vector2 pos;
+				KeyboardKey upKey;
+
 				Vector2 size{ 50,50 };
 				float colliderRadius{ 20 };
 				float angle{ 0 };
@@ -25,18 +23,15 @@ namespace flappyBird
 				bool canPullUp = true;
 
 				int points = 0;
+				bool lost = false;
 			};
 
-			void Start();
-			void Update(bool& shouldReset);
-			void Draw();
-
-			void PlayerTakeDamage();
-			Vector2 GetColliderPosition();
-			float GetRadius();
-			int GetPoints();
-			void AddPoint();
-			void ResetPoints();
+			void updatePlayer(Player& player);
+			void drawPlayer(Player player);
+			Vector2 GetColliderPosition(Player player);
+			float GetRadius(Player player);
+			void ResetPos(Player& player);
+			void Move(Player& player);
 		}
 	}
 }

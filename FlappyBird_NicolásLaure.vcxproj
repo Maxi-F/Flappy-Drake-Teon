@@ -171,6 +171,7 @@
     <ClCompile Include="src\Objects\Layer.cpp" />
     <ClCompile Include="src\Objects\Obstacle.cpp" />
     <ClCompile Include="src\Objects\Player.cpp" />
+    <ClCompile Include="src\Objects\PlayerManager.cpp" />
     <ClCompile Include="src\Objects\UI.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -190,6 +191,7 @@
     <ClInclude Include="src\Objects\Layer.h" />
     <ClInclude Include="src\Objects\Obstacle.h" />
     <ClInclude Include="src\Objects\Player.h" />
+    <ClInclude Include="src\Objects\PlayerManager.h" />
     <ClInclude Include="src\Objects\UI.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

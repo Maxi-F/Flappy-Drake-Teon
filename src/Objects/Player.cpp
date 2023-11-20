@@ -1,33 +1,11 @@
 #include "Objects/Player.h"
 
-#include "GameManagement/TexturesManager.h"
-
-namespace flappyBird
-{
-	namespace game
-	{
-		namespace player
-		{
-			static Player player;
-
+namespace flappyBird {
+	namespace game {
+		namespace player {
 			static const float GRAVITY = 1000.0f;
 
-			void ResetPos();
-			void Move();
-
-			void Start()
-			{
-				ResetPos();
-				player.points = 0;
-			}
-
-			void Update(bool& shouldReset)
-			{
-				/*if (IsKeyDown(KEY_S))
-					Move(false);
-				else if (IsKeyDown(KEY_W))
-					Move(true);*/
-
+			void updatePlayer(Player& player) {
 				player.velocity.y += GRAVITY * GetFrameTime();
 
 				if (player.pos.y == 0)
@@ -39,7 +17,7 @@ namespace flappyBird
 					player.canPullUp = true;
 
 
-				if (IsKeyPressed(KEY_SPACE) || IsKeyPressed(KEY_UP) || IsKeyPressed(KEY_W) || IsMouseButtonPressed(0))
+				if (IsKeyPressed(player.upKey))
 				{
 					if (player.canPullUp)
 					{
@@ -50,10 +28,10 @@ namespace flappyBird
 				}
 
 
-				Move();
+				Move(player);
 
 				if (player.pos.y + player.size.y / 2 >= GetScreenHeight() - player.size.y / 2)
-					shouldReset = true;
+					player.lost = true;
 
 				player.isPullingUp = player.velocity.y < 0;
 
@@ -61,14 +39,7 @@ namespace flappyBird
 					player.angle += player.rotationSpeed * GetFrameTime();
 			}
 
-			void Draw()
-			{
-				/*Color playerColor = WHITE;
-				if (player.isPullingUp)
-					playerColor = GREEN;
-				else
-					playerColor = WHITE;*/
-					//DrawRectangle(static_cast<int>(player.pos.x), static_cast<int>(player.pos.y), static_cast<int>(player.size.x), static_cast<int>(player.size.y), playerColor);
+			void drawPlayer(Player player) {
 				Texture playerTextureToDraw = utilities::GetTexture(utilities::TextureIdentifier::PlayerIdle);
 				if (player.isPullingUp)
 					playerTextureToDraw = utilities::GetTexture(utilities::TextureIdentifier::PlayerFlying);
@@ -79,45 +50,28 @@ namespace flappyBird
 #endif
 			}
 
-			void PlayerTakeDamage()
-			{
-				ResetPos();
-			}
-
-			Vector2 GetColliderPosition()
+			Vector2 GetColliderPosition(Player player)
 			{
 				return { player.pos.x + player.size.x / 2 ,player.pos.y + player.size.y / 2 };
 			}
 
-			float GetRadius()
+			float GetRadius(Player player)
 			{
 				return player.colliderRadius;
 			}
 
-			void ResetPos()
+			void ResetPos(Player& player)
 			{
 				player.pos = { 50, static_cast<float>(GetScreenHeight()) / 2 };
 				player.velocity.y = 0;
 				player.angle = 0;
 			}
 
-			void Move()
+			void Move(Player& player)
 			{
 				Vector2 playerMinPos = { player.pos.x,0 };
 				Vector2 playerMaxPos = { player.pos.x, static_cast<float>(GetScreenHeight()) - player.size.y };
 				player.pos = Vector2Clamp(Vector2Add(player.pos, Vector2Scale(player.velocity, GetFrameTime())), playerMinPos, playerMaxPos);
-			}
-
-			int GetPoints() {
-				return player.points;
-			}
-
-			void AddPoint() {
-				player.points++;
-			}
-
-			void ResetPoints() {
-				player.points = 0;
 			}
 		}
 	}

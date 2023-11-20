@@ -13,6 +13,8 @@ namespace flappyBird
 			Default,
 			PlayerIdle,
 			PlayerFlying,
+			PlayerTwoIdle,
+			PlayerTwoFlying,
 			Ground,
 			Leaves,
 			FirstLineTrees,
@@ -25,6 +27,8 @@ namespace flappyBird
 			Texture defaultTexture;
 			Texture playerIdle;
 			Texture playerFlying;
+			Texture playerTwoIdle;
+			Texture playerTwoFlying;
 			Texture ground;
 			Texture leaves;
 			Texture firstLineTrees;

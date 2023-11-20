@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "Objects/Player.h"
+#include "Objects/PlayerManager.h"
 
 namespace flappyBird {
 	namespace game {
@@ -10,7 +10,7 @@ namespace flappyBird {
 			void init() {};
 			void update() {};
 			void draw() {
-				std::string pointsString = "Points: " + std::to_string(player::GetPoints());
+				std::string pointsString = "Points: " + std::to_string(playerManager::GetPointsOf(0));
 
 				DrawText(
 					pointsString.c_str(),

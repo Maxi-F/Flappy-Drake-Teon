@@ -3,7 +3,7 @@
 #include <string>
 
 #include "GameManagement/Utilities.h"
-#include "Objects/Player.h"
+#include "Objects/PlayerManager.h"
 
 using namespace std;
 
@@ -52,7 +52,7 @@ namespace flappyBird
 		{
 			const char* title = "Game Over";
 
-			std::string pointsString = "Points: " + std::to_string(game::player::GetPoints());
+			std::string pointsString = "Points: " + std::to_string(game::playerManager::GetPointsOf(0));
 			const char* pointsText = pointsString.c_str();
 
 			int titleSize = 130;

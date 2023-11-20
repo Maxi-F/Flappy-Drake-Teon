@@ -2,7 +2,7 @@
 
 #include "GameManagement/Utilities.h"
 #include "GameManagement/GameData.h"
-#include "Objects/Player.h"
+#include "Objects/PlayerManager.h"
 #include "GameManagement/ObstaclesManager.h"
 #include "Objects/BackGround.h"
 #include "GameManagement/CollisionHandler.h"
@@ -50,7 +50,7 @@ namespace flappyBird
 
 		void Start()
 		{
-			player::Start();
+			playerManager::Start(false);
 			obstaclesManager::Start();
 			backGround::Start();
 			uiManager::init();
@@ -61,10 +61,10 @@ namespace flappyBird
 		}
 		void Update()
 		{
-			player::Update(gd.isGameOver);
+			playerManager::Update(false, gd.isGameOver);
 			obstaclesManager::Update();
 			backGround::Update();
-			CheckCollisions();
+			CheckCollisions(false);
 			uiManager::update();
 
 			if (IsMouseButtonPressed(2) || IsKeyPressed(KEY_ESCAPE))
@@ -76,7 +76,7 @@ namespace flappyBird
 			BeginDrawing();
 			ClearBackground(BLACK);
 			backGround::Draw();
-			player::Draw();
+			playerManager::Draw(false);
 			obstaclesManager::Draw();
 			uiManager::draw();
 			EndDrawing();

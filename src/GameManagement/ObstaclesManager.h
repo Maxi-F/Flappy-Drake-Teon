@@ -1,6 +1,6 @@
 #pragma once
 #include "Objects/Obstacle.h"
-#include "Objects/Player.h"
+#include "Objects/PlayerManager.h"
 
 namespace flappyBird
 {
@@ -15,7 +15,7 @@ namespace flappyBird
 
 			const int OBSTACLES_QTY = 2;
 
-			void AddPointToPlayer(int obstacleIndex);
+			void AddPointToPlayer(int playerIndex, int obstacleIndex);
 			Rectangle GetObstacleUpperCollider(int obstacleIndex);
 			Rectangle GetObstacleLowerCollider(int obstacleIndex);
 		}
