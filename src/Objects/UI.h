@@ -10,6 +10,6 @@ namespace flappyBird
 	{
 		void DrawVersionText();
 		void PausePanelDraw(Button& menuButton);
-		void GameOverPanelDraw(Button& menuButton, Button& restartButton);
+		void GameOverPanelDraw(Button& menuButton, Button& restartButton, bool isMultiplayer);
 	}
 }

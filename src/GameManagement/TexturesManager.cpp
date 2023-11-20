@@ -12,6 +12,7 @@ namespace flappyBird
 			textures.playerIdle = LoadTexture("assets/sprites/DragonIdle.png");
 			textures.playerFlying = LoadTexture("assets/sprites/DragonFlying.png");
 			textures.playerTwoIdle = LoadTexture("assets/sprites/GreenDragonIdle.png");
+			textures.playerTwoFlying = LoadTexture("assets/sprites/GreenDragonFlying.png");
 			textures.ground = LoadTexture("assets/sprites/ground.png");
 			textures.leaves = LoadTexture("assets/sprites/topLeaves.png");
 			textures.firstLineTrees = LoadTexture("assets/sprites/firstTrees.png");

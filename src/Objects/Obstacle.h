@@ -8,6 +8,7 @@ namespace flappyBird
 	{
 		namespace obstacle
 		{
+			static const int MAX_PLAYERS = 2;
 			struct Obstacle
 			{
 				Vector2 pos;
@@ -18,7 +19,7 @@ namespace flappyBird
 				Rectangle lowerBoxCollider;
 
 				bool hasVerticalMovement = false;
-				bool countedPoint = false;
+				bool countedPoint[MAX_PLAYERS] = { false, false };
 				float verticalSpeed = 200;
 				const float obstacleOpeningSize = 120;
 				

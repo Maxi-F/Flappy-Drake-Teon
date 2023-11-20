@@ -50,7 +50,7 @@ namespace flappyBird
 
 		void Start()
 		{
-			playerManager::Start(false);
+			playerManager::Start(gd.isMultiplayer);
 			obstaclesManager::Start();
 			backGround::Start();
 			uiManager::init();
@@ -61,10 +61,10 @@ namespace flappyBird
 		}
 		void Update()
 		{
-			playerManager::Update(false, gd.isGameOver);
+			playerManager::Update(gd.isMultiplayer, gd.isGameOver);
 			obstaclesManager::Update();
 			backGround::Update();
-			CheckCollisions(false);
+			CheckCollisions(gd.isMultiplayer);
 			uiManager::update();
 
 			if (IsMouseButtonPressed(2) || IsKeyPressed(KEY_ESCAPE))
@@ -76,9 +76,9 @@ namespace flappyBird
 			BeginDrawing();
 			ClearBackground(BLACK);
 			backGround::Draw();
-			playerManager::Draw(false);
+			playerManager::Draw(gd.isMultiplayer);
 			obstaclesManager::Draw();
-			uiManager::draw();
+			uiManager::draw(gd.isMultiplayer);
 			EndDrawing();
 		}
 
@@ -127,7 +127,7 @@ namespace flappyBird
 					RulesDraw();
 				else */
 			if (gd.isGameOver)
-				userInterface::GameOverPanelDraw(gd.menuButton, gd.restartButton);
+				userInterface::GameOverPanelDraw(gd.menuButton, gd.restartButton, gd.isMultiplayer);
 			else
 				userInterface::PausePanelDraw(gd.menuButton);
 

@@ -15,7 +15,8 @@ namespace flappyBird
 			{
 				obstacle.offset.x = offsetX;
 				obstacle.size = { 60, 180 };
-				obstacle.countedPoint = false;
+				obstacle.countedPoint[0] = false;
+				obstacle.countedPoint[1] = false;
 				SetStartPosition(obstacle);
 				obstacle.speed = 500;
 			}
@@ -74,7 +75,8 @@ namespace flappyBird
 				//float posY = doesObstacleSpawnUp ? 0 : GetScreenHeight() - obstacle.size.y;
 				obstacle.pos = { static_cast<float>(GetScreenWidth()), posY };
 				
-				obstacle.countedPoint = false;
+				obstacle.countedPoint[0] = false;
+				obstacle.countedPoint[1] = false;
 
 				SetRectangles(obstacle);
 			}

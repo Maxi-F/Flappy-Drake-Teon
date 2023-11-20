@@ -48,26 +48,24 @@ namespace flappyBird
 			DrawText(resumeText, GetScreenWidth() / 2 - MeasureText(resumeText, resumeTextSize) / 2, GetScreenHeight() / 2 - pressKeyWindowLimitSpacing, resumeTextSize, WHITE);
 		}
 
-		void GameOverPanelDraw(Button& menuButton, Button& restartButton)
+		void GameOverPanelDraw(Button& menuButton, Button& restartButton, bool isMultiplayer)
 		{
 			const char* title = "Game Over";
-
-			std::string pointsString = "Points: " + std::to_string(game::playerManager::GetPointsOf(0));
-			const char* pointsText = pointsString.c_str();
 
 			int titleSize = 130;
 			int pointsSize = 70;
 
 			int buttonsSpacing = 50;
+			int buttonsTopMargin = 100;
 
-			menuButton.buttonRect.position = { static_cast<float>(GetScreenWidth()) / 2 - MeasureText(menuButton.text, menuButton.fontSize) / 2 , static_cast<float>(GetScreenHeight()) / 2 + buttonsSpacing };
+			menuButton.buttonRect.position = { static_cast<float>(GetScreenWidth()) / 2 - MeasureText(menuButton.text, menuButton.fontSize) / 2 , static_cast<float>(GetScreenHeight()) / 2 + buttonsTopMargin + buttonsSpacing };
 			menuButton.buttonRect.width = static_cast<float>(MeasureText(menuButton.text, menuButton.fontSize));
 			menuButton.buttonRect.height = static_cast<float>(menuButton.fontSize);
 			menuButton.bgColor = DARKGRAY;
 
 			ButtonDraw(menuButton, true);
 
-			restartButton.buttonRect.position = { static_cast<float>(GetScreenWidth()) / 2 - MeasureText(restartButton.text, restartButton.fontSize) / 2, static_cast<float>(GetScreenHeight()) / 2 - buttonsSpacing };
+			restartButton.buttonRect.position = { static_cast<float>(GetScreenWidth()) / 2 - MeasureText(restartButton.text, restartButton.fontSize) / 2, static_cast<float>(GetScreenHeight()) / 2 + buttonsTopMargin - buttonsSpacing };
 			restartButton.buttonRect.width = static_cast<float>(MeasureText(restartButton.text, restartButton.fontSize));
 			restartButton.buttonRect.height = static_cast<float>(restartButton.fontSize);
 			restartButton.bgColor = DARKGRAY;
@@ -75,13 +73,42 @@ namespace flappyBird
 			ButtonDraw(restartButton, true);
 
 			DrawText(title, GetScreenWidth() / 2 - MeasureText(title, titleSize) / 2, titleWindowLimitSpacing, titleSize, WHITE);
-			DrawText(
-				pointsText,
-				GetScreenWidth() / 2 - MeasureText(pointsText, pointsSize) / 2,
-				titleWindowLimitSpacing + titleSize + pointsWindowLimitSpacing,
-				pointsSize,
-				RED
-			);
+
+			if (isMultiplayer) {
+				std::string pointsString = "Player one Points: " + std::to_string(game::playerManager::GetPointsOf(0));
+				const char* pointsText = pointsString.c_str();
+
+				DrawText(
+					pointsText,
+					GetScreenWidth() / 2 - MeasureText(pointsText, pointsSize) / 2,
+					titleWindowLimitSpacing + titleSize + pointsWindowLimitSpacing,
+					pointsSize,
+					RED
+				);
+
+				std::string pointsTwoString = "Player two Points: " + std::to_string(game::playerManager::GetPointsOf(1));
+				const char* pointsTwoText = pointsTwoString.c_str();
+
+				DrawText(
+					pointsTwoText,
+					GetScreenWidth() / 2 - MeasureText(pointsTwoText, pointsSize) / 2,
+					titleWindowLimitSpacing + titleSize + pointsSize + pointsWindowLimitSpacing,
+					pointsSize,
+					GREEN
+				);
+			}
+			else {
+				std::string pointsString = "Points: " + std::to_string(game::playerManager::GetPointsOf(0));
+				const char* pointsText = pointsString.c_str();
+
+				DrawText(
+					pointsText,
+					GetScreenWidth() / 2 - MeasureText(pointsText, pointsSize) / 2,
+					titleWindowLimitSpacing + titleSize + pointsWindowLimitSpacing,
+					pointsSize,
+					RED
+				);
+			}
 		}
 	}
 }

@@ -40,9 +40,10 @@ namespace flappyBird {
 			}
 
 			void drawPlayer(Player player) {
-				Texture playerTextureToDraw = utilities::GetTexture(utilities::TextureIdentifier::PlayerIdle);
+				if (player.lost) return;
+				Texture playerTextureToDraw = utilities::GetTexture(player.idleTexture);
 				if (player.isPullingUp)
-					playerTextureToDraw = utilities::GetTexture(utilities::TextureIdentifier::PlayerFlying);
+					playerTextureToDraw = utilities::GetTexture(player.flyingTexture);
 
 				DrawTexturePro(playerTextureToDraw, { 0,0,64,64 }, { player.pos.x + player.size.x / 2 , player.pos.y + player.size.y / 2, player.size.x, player.size.y }, { player.size.x / 2, player.size.y / 2 }, player.angle, WHITE);
 #ifdef _DEBUG

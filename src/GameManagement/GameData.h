@@ -12,6 +12,7 @@ namespace flappyBird
 			bool areRulesBeingShown = false;
 			bool isPaused = false;
 			bool isGameOver = false;
+			bool isMultiplayer = true;
 
 			bool shouldRestart{false};
 

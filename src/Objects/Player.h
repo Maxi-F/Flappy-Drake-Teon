@@ -8,6 +8,8 @@ namespace flappyBird {
 			{
 				Vector2 pos;
 				KeyboardKey upKey;
+				utilities::TextureIdentifier idleTexture;
+				utilities::TextureIdentifier flyingTexture;
 
 				Vector2 size{ 50,50 };
 				float colliderRadius{ 20 };

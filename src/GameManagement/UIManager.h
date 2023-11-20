@@ -5,7 +5,7 @@ namespace flappyBird {
 		namespace uiManager {
 			void init();
 			void update();
-			void draw();
+			void draw(bool isMultiplayer);
 		}
 	}
 }

@@ -20,13 +20,17 @@ namespace flappyBird
 				players[0].upKey = KEY_UP;
 				players[0].points = 0;
 				players[0].lost = false;
+				players[0].idleTexture = utilities::TextureIdentifier::PlayerIdle;
+				players[0].flyingTexture = utilities::TextureIdentifier::PlayerFlying;
 
 				if (isMultiplayer) {
 					player::ResetPos(players[1]);
-					players[0].upKey = KEY_W;
-					players[0].points = 0;
-
+					players[1].upKey = KEY_W;
+					players[1].points = 0;
 					players[1].lost = false;
+
+					players[1].idleTexture = utilities::TextureIdentifier::PlayerTwoIdle;
+					players[1].flyingTexture = utilities::TextureIdentifier::PlayerTwoFlying;
 				}
 				else {
 					players[1].lost = true;
@@ -89,6 +93,14 @@ namespace flappyBird
 				}
 
 				return true;
+			}
+
+			bool PlayerLost(int playerIndex) {
+				return players[playerIndex].lost;
+			}
+
+			void SetPlayerLost(int playerIndex) {
+				players[playerIndex].lost = true;
 			}
 		}
 	}
