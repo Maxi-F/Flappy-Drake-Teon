@@ -22,7 +22,7 @@ namespace flappyBird
 	};
 
 	void ButtonCollisionCheck(Button& button, Scenes& scene);
-	void ItchPageButtonCollisionCheck(Button& button);
+	void ItchPageButtonCollisionCheck(Button& button, const char* link);
 	void CreditsButtonCollisionCheck(Button& button, bool& creditsScreen);
 	void ResetButtonCollisionCheck(Button& button, bool& restartGame);
 	void ButtonDraw(Button& button, bool drawRectangle);

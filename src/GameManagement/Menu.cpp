@@ -13,7 +13,8 @@ namespace flappyBird
 		int titleSize = 80;
 		int titleLimitSpacing = 70;
 
-		const char* credits = "Created By Nico Laure";
+		const char* createdCredits = "Created By Nico Laure";
+		const char* extensionCredits = "Extended by Maxi Feldman";
 		int creditsSize = 30;
 
 		static const int buttonsQty = 4;
@@ -25,7 +26,8 @@ namespace flappyBird
 
 		};
 
-		Button itchPageButton = { {0,0}, Scenes::Menu, credits };
+		Button creatorItchPageButton = { {0,0}, Scenes::Menu, createdCredits, creditsSize };
+		Button ExtensionItchPageButton = { {0,0}, Scenes::Menu, extensionCredits, creditsSize };
 
 		bool showCreditsScreen = false;
 		Button closeCredits = { {0,0}, Scenes::Menu,"Close Credits" };
@@ -51,8 +53,36 @@ namespace flappyBird
 
 		//PlayMusicStream(GetMusic(MusicIdentifier::MenuMusic));
 		float windowLimitSpacing = 20;
-		textSize = MeasureTextEx(GetFontDefault(), menuData.itchPageButton.text, static_cast<float>(menuData.itchPageButton.fontSize), menuData.itchPageButton.fontSize * 0.1f);
-		menuData.itchPageButton.buttonRect = { {static_cast<float>(GetScreenWidth()) - MeasureText(menuData.credits, menuData.creditsSize) - 20, static_cast<float>(GetScreenHeight()) - menuData.creditsSize - 20}, textSize.y, textSize.x };
+		textSize = MeasureTextEx(
+			GetFontDefault(),
+			menuData.creatorItchPageButton.text,
+			static_cast<float>(menuData.creatorItchPageButton.fontSize),
+			menuData.creatorItchPageButton.fontSize * 0.1f
+		);
+
+		menuData.creatorItchPageButton.buttonRect = {
+			{
+				static_cast<float>(GetScreenWidth()) - MeasureText(menuData.createdCredits, menuData.creditsSize) - windowLimitSpacing,
+				static_cast<float>(GetScreenHeight()) - menuData.creditsSize * 2 - windowLimitSpacing},
+				textSize.y,
+				textSize.x
+		};
+
+		textSize = MeasureTextEx(
+			GetFontDefault(),
+			menuData.ExtensionItchPageButton.text,
+			static_cast<float>(menuData.ExtensionItchPageButton.fontSize),
+			menuData.ExtensionItchPageButton.fontSize * 0.1f
+		);
+
+		menuData.ExtensionItchPageButton.buttonRect = {
+			{
+				static_cast<float>(GetScreenWidth()) - MeasureText(menuData.createdCredits, menuData.creditsSize) - windowLimitSpacing,
+				static_cast<float>(GetScreenHeight()) - menuData.creditsSize - windowLimitSpacing
+			},
+			textSize.y,
+			textSize.x
+		};
 
 		for (int i = 0; i < menuData.buttonsQty; i++)
 		{
@@ -65,7 +95,8 @@ namespace flappyBird
 		//UpdateMusicStream(GetMusic(MusicIdentifier::MenuMusic));
 		if (!menuData.showCreditsScreen)
 		{
-			ItchPageButtonCollisionCheck(menuData.itchPageButton);
+			ItchPageButtonCollisionCheck(menuData.creatorItchPageButton, "https://nico-drake.itch.io/");
+			ItchPageButtonCollisionCheck(menuData.ExtensionItchPageButton, "https://teonnn.itch.io/");
 			for (Button& button : menuData.scenesButtons)
 			{
 				if (button.sceneTo == Scenes::Menu)
@@ -82,13 +113,27 @@ namespace flappyBird
 
 	void MenuDraw()
 	{
+		float windowLimitSpacing = 20;
+
 		BeginDrawing();
 
 		if (!menuData.showCreditsScreen)
 		{
 			ClearBackground(BLACK);
-			DrawText(menuData.title, GetScreenWidth() / 2 - MeasureText(menuData.title, menuData.titleSize) / 2, 20, menuData.titleSize, WHITE);
-			DrawText(menuData.credits, GetScreenWidth() - MeasureText(menuData.credits, menuData.creditsSize) - 20, GetScreenHeight() - menuData.creditsSize - 20, menuData.creditsSize, menuData.itchPageButton.currentTextColor);
+			DrawText(menuData.title, GetScreenWidth() / 2 - MeasureText(menuData.title, menuData.titleSize) / 2, static_cast<int>(windowLimitSpacing), menuData.titleSize, WHITE);
+			DrawText(
+				menuData.createdCredits, GetScreenWidth() - MeasureText(menuData.createdCredits, menuData.creditsSize) - static_cast<int>(windowLimitSpacing),
+				GetScreenHeight() - menuData.creditsSize * 2 - static_cast<int>(windowLimitSpacing),
+				menuData.creditsSize,
+				menuData.creatorItchPageButton.currentTextColor
+			);
+
+			DrawText(
+				menuData.extensionCredits, GetScreenWidth() - MeasureText(menuData.extensionCredits, menuData.creditsSize) - static_cast<int>(windowLimitSpacing),
+				GetScreenHeight() - menuData.creditsSize - static_cast<int>(windowLimitSpacing),
+				menuData.creditsSize,
+				menuData.ExtensionItchPageButton.currentTextColor
+			);
 
 			for (Button& button : menuData.scenesButtons)
 			{
@@ -103,14 +148,16 @@ namespace flappyBird
 
 			int creditsSize = 25;
 			int creditsHorizontalDisplacement = 20;
-			int creditsSpacing = 120;
+			int creditsSpacing = 70;
 			//const char* santiText = "Player And Asteroids by Santiago Garrido instagram: @tains_art";
 			const char* nicoText = "Programming made by Nicolas Laure: https://nico-drake.itch.io";
+			const char* maxiText = "Extension made by Maxi Feldman: https://teonnn.itch.io";
 			const char* backGroundText = "Background by Eder Munizz: https://edermunizz.itch.io/free-pixel-art-forest";
 			const char* dragonsText = "Dragon sprites by DeepDiveGameStudio https://deepdivegamestudio.itch.io/dragon-asset-pack";
 
 			//DrawText(santiText, creditsHorizontalDisplacement, GetScreenHeight() / 2 - creditsSpacing * 2, creditsSize, WHITE);
-			DrawText(nicoText, creditsHorizontalDisplacement, GetScreenHeight() / 2 - creditsSpacing * 2, creditsSize, WHITE);
+			DrawText(nicoText, creditsHorizontalDisplacement, GetScreenHeight() / 2 - creditsSpacing * 3, creditsSize, WHITE);
+			DrawText(maxiText, creditsHorizontalDisplacement, GetScreenHeight() / 2 - creditsSpacing * 2, creditsSize, WHITE);
 			DrawText(dragonsText, creditsHorizontalDisplacement, GetScreenHeight() / 2 - creditsSpacing, creditsSize, WHITE);
 			DrawText(backGroundText, creditsHorizontalDisplacement, GetScreenHeight() / 2, creditsSize, WHITE);
 			const char* title = "Credits";

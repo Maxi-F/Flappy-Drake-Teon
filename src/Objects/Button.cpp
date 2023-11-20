@@ -48,7 +48,7 @@ namespace flappyBird
 		}
 	}
 
-	void ItchPageButtonCollisionCheck(Button& button)
+	void ItchPageButtonCollisionCheck(Button& button, const char* link)
 	{
 		Vector2 mousePos = GetMousePosition();
 
@@ -77,7 +77,7 @@ namespace flappyBird
 			{
 				if (button.wasPressed)
 				{
-					OpenURL("https://nico-drake.itch.io/");
+					OpenURL(link);
 				/*	if (!IsSoundPlaying(GetSound(SoundIdentifier::ButtonRelease)))
 						PlaySound(GetSound(SoundIdentifier::ButtonRelease));*/
 				}
