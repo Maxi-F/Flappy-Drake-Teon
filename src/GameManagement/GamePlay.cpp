@@ -30,7 +30,7 @@ namespace flappyBird
 				enteredNewScene = false;
 			}
 
-			if (!gd.isPaused)
+			if (!gd.isPaused && !gd.isGameOver)
 			{
 				game::Update();
 				game::Draw();
@@ -44,6 +44,10 @@ namespace flappyBird
 
 		}
 
+		void SetIsGameOver(bool value) {
+			gd.isGameOver = value;
+		}
+
 		void Start()
 		{
 			player::Start();
@@ -52,6 +56,7 @@ namespace flappyBird
 			uiManager::init();
 
 			gd.shouldRestart = false;
+			gd.isGameOver = false;
 			gd.isPaused = false;
 		}
 		void Update()
@@ -91,6 +96,10 @@ namespace flappyBird
 			{
 				ButtonCollisionCheck(gd.menuButton, scene);
 				ResetButtonCollisionCheck(gd.restartButton, gd.shouldRestart);
+
+				if (gd.shouldRestart) {
+					gd.isGameOver = false;
+				}
 			}
 			else
 			{

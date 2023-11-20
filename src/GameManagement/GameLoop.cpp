@@ -48,6 +48,8 @@ namespace flappyBird
 			{
 			case Scenes::GameQuit:
 				break;
+			case Scenes::GameOver:
+				break;
 			case Scenes::Menu:
 				MenuScene(sceneManager.enteredNewScene, sceneManager.currentScene);
 				break;

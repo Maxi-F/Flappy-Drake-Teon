@@ -1,8 +1,9 @@
 #include "Objects/UI.h"
 
-#include "GameManagement/Utilities.h"
-
 #include <string>
+
+#include "GameManagement/Utilities.h"
+#include "Objects/Player.h"
 
 using namespace std;
 
@@ -11,6 +12,7 @@ namespace flappyBird
 	namespace userInterface
 	{
 		static int titleWindowLimitSpacing = 60;
+		static int pointsWindowLimitSpacing = 20;
 		static int pressKeyWindowLimitSpacing = 120;
 		static int wordsSpacing = 40;
 
@@ -50,7 +52,11 @@ namespace flappyBird
 		{
 			const char* title = "Game Over";
 
-			int titleSize = static_cast<int>(130);
+			std::string pointsString = "Points: " + std::to_string(game::player::GetPoints());
+			const char* pointsText = pointsString.c_str();
+
+			int titleSize = 130;
+			int pointsSize = 70;
 
 			int buttonsSpacing = 50;
 
@@ -69,6 +75,13 @@ namespace flappyBird
 			ButtonDraw(restartButton, true);
 
 			DrawText(title, GetScreenWidth() / 2 - MeasureText(title, titleSize) / 2, titleWindowLimitSpacing, titleSize, WHITE);
+			DrawText(
+				pointsText,
+				GetScreenWidth() / 2 - MeasureText(pointsText, pointsSize) / 2,
+				titleWindowLimitSpacing + titleSize + pointsWindowLimitSpacing,
+				pointsSize,
+				RED
+			);
 		}
 	}
 }

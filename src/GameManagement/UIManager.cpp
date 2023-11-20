@@ -17,7 +17,7 @@ namespace flappyBird {
 					10,
 					10,
 					32,
-					GRAY
+					RED
 				);
 			};
 		}

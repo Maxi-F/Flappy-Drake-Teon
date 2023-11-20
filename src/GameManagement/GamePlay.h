@@ -6,5 +6,6 @@ namespace flappyBird
 	namespace game
 	{
 		void GamePlayLoop(bool& enteredNewScene, Scenes& currentScene);
+		void SetIsGameOver(bool value);
 	}
 }

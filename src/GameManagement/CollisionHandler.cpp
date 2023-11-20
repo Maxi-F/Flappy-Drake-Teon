@@ -1,8 +1,8 @@
 #include "GameManagement/CollisionHandler.h"
 
 #include "GameManagement/Utilities.h"
-
 #include "GameManagement/ObstaclesManager.h"
+#include "GameManagement/GamePlay.h"
 #include "Objects/Player.h"
 
 namespace flappyBird
@@ -15,8 +15,7 @@ namespace flappyBird
 			{
 				if (CheckCollisionCircleRec(player::GetColliderPosition(), player::GetRadius(), obstaclesManager::GetObstacleUpperCollider(i)) || CheckCollisionCircleRec(player::GetColliderPosition(), player::GetRadius(), obstaclesManager::GetObstacleLowerCollider(i)))
 				{
-					player::Start();
-					obstaclesManager::ResetObstacles();
+					SetIsGameOver(true);
 				}
 				else {
 					obstaclesManager::AddPointToPlayer(i);
