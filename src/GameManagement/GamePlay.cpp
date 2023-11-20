@@ -22,8 +22,10 @@ namespace flappyBird
 		void PauseUpdate(Scenes& scene);
 		void PauseDraw();
 
-		void GamePlayLoop(bool& enteredNewScene, Scenes& currentScene)
+		void GamePlayLoop(bool& enteredNewScene, Scenes& currentScene, bool isMultiplayer)
 		{
+			gd.isMultiplayer = isMultiplayer;
+
 			if (enteredNewScene || gd.shouldRestart)
 			{
 				game::Start();

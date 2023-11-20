@@ -16,9 +16,10 @@ namespace flappyBird
 		const char* credits = "Created By Nico Laure";
 		int creditsSize = 30;
 
-		static const int buttonsQty = 3;
+		static const int buttonsQty = 4;
 		Button scenesButtons[buttonsQty] = {
-			{{0,0}, Scenes::Game, "Play"},
+			{{0,0}, Scenes::Game, "Singleplayer"},
+			{{0,0}, Scenes::MultiplayerGame, "Multiplayer"},
 			{{0,0}, Scenes::Menu,"Credits"},
 			{{0,0}, Scenes::GameQuit,"Exit Game"}
 

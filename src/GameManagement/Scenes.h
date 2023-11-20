@@ -6,7 +6,7 @@ namespace flappyBird
 	{
 		Menu,
 		Game,
-		GameOver,
+		MultiplayerGame,
 		Options,
 		GameQuit
 	};
