@@ -18,6 +18,7 @@ namespace flappyBird
 			void Start()
 			{
 				ResetPos();
+				player.points = 0;
 			}
 
 			void Update(bool& shouldReset)
@@ -105,6 +106,18 @@ namespace flappyBird
 				Vector2 playerMinPos = { player.pos.x,0 };
 				Vector2 playerMaxPos = { player.pos.x, static_cast<float>(GetScreenHeight()) - player.size.y };
 				player.pos = Vector2Clamp(Vector2Add(player.pos, Vector2Scale(player.velocity, GetFrameTime())), playerMinPos, playerMaxPos);
+			}
+
+			int GetPoints() {
+				return player.points;
+			}
+
+			void AddPoint() {
+				player.points++;
+			}
+
+			void ResetPoints() {
+				player.points = 0;
 			}
 		}
 	}

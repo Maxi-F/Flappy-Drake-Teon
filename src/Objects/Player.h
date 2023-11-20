@@ -34,6 +34,9 @@ namespace flappyBird
 			void PlayerTakeDamage();
 			Vector2 GetColliderPosition();
 			float GetRadius();
+			int GetPoints();
+			void AddPoint();
+			void ResetPoints();
 		}
 	}
 }

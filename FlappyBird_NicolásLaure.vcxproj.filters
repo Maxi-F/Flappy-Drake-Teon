@@ -90,6 +90,9 @@
     <ClCompile Include="src\Objects\UI.cpp">
       <Filter>Archivos de origen\screens</Filter>
     </ClCompile>
+    <ClCompile Include="src\GameManagement\UIManager.cpp">
+      <Filter>Archivos de origen\managers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\GameManagement\Utilities.h">
@@ -139,6 +142,9 @@
     </ClInclude>
     <ClInclude Include="src\Objects\UI.h">
       <Filter>Archivos de encabezado\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameManagement\UIManager.h">
+      <Filter>Archivos de encabezado\managers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

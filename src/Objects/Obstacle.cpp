@@ -15,6 +15,7 @@ namespace flappyBird
 			{
 				obstacle.offset.x = offsetX;
 				obstacle.size = { 60, 180 };
+				obstacle.countedPoint = false;
 				SetStartPosition(obstacle);
 				obstacle.speed = 500;
 			}
@@ -72,6 +73,9 @@ namespace flappyBird
 				float posY = static_cast<float>(GetRandomValue(static_cast<int>(obstacle.obstacleOpeningSize), GetScreenHeight() - static_cast<int>(obstacle.obstacleOpeningSize)));
 				//float posY = doesObstacleSpawnUp ? 0 : GetScreenHeight() - obstacle.size.y;
 				obstacle.pos = { static_cast<float>(GetScreenWidth()), posY };
+				
+				obstacle.countedPoint = false;
+
 				SetRectangles(obstacle);
 			}
 

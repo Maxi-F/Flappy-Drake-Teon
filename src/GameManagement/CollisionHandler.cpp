@@ -18,6 +18,9 @@ namespace flappyBird
 					player::Start();
 					obstaclesManager::ResetObstacles();
 				}
+				else {
+					obstaclesManager::AddPointToPlayer(i);
+				}
 			}
 		}
 	}

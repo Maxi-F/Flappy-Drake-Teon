@@ -15,7 +15,7 @@ namespace flappyBird
 
 			const int OBSTACLES_QTY = 2;
 
-			bool shouldAddPoint(player::Player player, int obstacleIndex);
+			void AddPointToPlayer(int obstacleIndex);
 			Rectangle GetObstacleUpperCollider(int obstacleIndex);
 			Rectangle GetObstacleLowerCollider(int obstacleIndex);
 		}

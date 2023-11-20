@@ -6,6 +6,7 @@
 #include "GameManagement/ObstaclesManager.h"
 #include "Objects/BackGround.h"
 #include "GameManagement/CollisionHandler.h"
+#include "GameManagement/UIManager.h"
 #include "Objects/UI.h"
 
 namespace flappyBird
@@ -48,6 +49,7 @@ namespace flappyBird
 			player::Start();
 			obstaclesManager::Start();
 			backGround::Start();
+			uiManager::init();
 
 			gd.shouldRestart = false;
 			gd.isPaused = false;
@@ -58,6 +60,7 @@ namespace flappyBird
 			obstaclesManager::Update();
 			backGround::Update();
 			CheckCollisions();
+			uiManager::update();
 
 			if (IsMouseButtonPressed(2) || IsKeyPressed(KEY_ESCAPE))
 				gd.isPaused = true;
@@ -70,6 +73,7 @@ namespace flappyBird
 			backGround::Draw();
 			player::Draw();
 			obstaclesManager::Draw();
+			uiManager::draw();
 			EndDrawing();
 		}
 
