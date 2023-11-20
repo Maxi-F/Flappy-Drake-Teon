@@ -20,7 +20,7 @@ namespace flappyBird
 		static float fontSize = 25;
 		void DrawVersionText()
 		{
-			const char* versionText = "0.2";
+			const char* versionText = "0.3";
 			Vector2 textSize = MeasureTextEx(GetFontDefault(), versionText, fontSize, SPACING);
 			DrawText(versionText, GetScreenWidth() - static_cast<int>(textSize.x), 0, static_cast<int>(fontSize), WHITE);
 		}
