@@ -18,6 +18,7 @@ namespace flappyBird
 
 		static const int SPACING = 5;
 		static float fontSize = 25;
+		
 		void DrawVersionText()
 		{
 			const char* versionText = "0.3";
@@ -109,6 +110,15 @@ namespace flappyBird
 					RED
 				);
 			}
+		}
+
+		void RulesDraw() {
+			DrawTexture(
+				utilities::GetTexture(utilities::TextureIdentifier::Rules),
+				0,
+				0,
+				WHITE
+			);
 		}
 	}
 }

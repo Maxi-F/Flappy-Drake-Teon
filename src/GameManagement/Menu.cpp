@@ -77,7 +77,7 @@ namespace flappyBird
 
 		menuData.ExtensionItchPageButton.buttonRect = {
 			{
-				static_cast<float>(GetScreenWidth()) - MeasureText(menuData.createdCredits, menuData.creditsSize) - windowLimitSpacing,
+				static_cast<float>(GetScreenWidth()) - MeasureText(menuData.extensionCredits, menuData.creditsSize) - windowLimitSpacing,
 				static_cast<float>(GetScreenHeight()) - menuData.creditsSize - windowLimitSpacing
 			},
 			textSize.y,

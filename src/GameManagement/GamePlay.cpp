@@ -32,7 +32,7 @@ namespace flappyBird
 				enteredNewScene = false;
 			}
 
-			if (!gd.isPaused && !gd.isGameOver)
+			if (!gd.isPaused && !gd.isGameOver && !gd.areRulesBeingShown)
 			{
 				game::Update();
 				game::Draw();
@@ -88,7 +88,7 @@ namespace flappyBird
 		{
 			if (gd.areRulesBeingShown)
 			{
-				if (IsMouseButtonPressed(0))
+				if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
 				{
 					gd.isPaused = false;
 					gd.areRulesBeingShown = false;
@@ -106,7 +106,7 @@ namespace flappyBird
 			else
 			{
 				ButtonCollisionCheck(gd.menuButton, scene);
-				if (IsMouseButtonPressed(2) || IsKeyPressed(KEY_ESCAPE))
+				if (IsMouseButtonPressed(MOUSE_BUTTON_MIDDLE) || IsKeyPressed(KEY_ESCAPE))
 				{
 					gd.isPaused = false;
 				}
@@ -125,10 +125,9 @@ namespace flappyBird
 
 			DrawRectangle(GetScreenWidth() / 2, GetScreenHeight() / 2, GetScreenWidth(), GetScreenHeight(), panelColor);
 
-			/*	if (gd.areRulesBeingShown)
-					RulesDraw();
-				else */
-			if (gd.isGameOver)
+			if (gd.areRulesBeingShown)
+					userInterface::RulesDraw();
+			else if (gd.isGameOver)
 				userInterface::GameOverPanelDraw(gd.menuButton, gd.restartButton, gd.isMultiplayer);
 			else
 				userInterface::PausePanelDraw(gd.menuButton);

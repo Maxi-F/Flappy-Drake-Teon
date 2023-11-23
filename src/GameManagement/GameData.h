@@ -9,7 +9,7 @@ namespace flappyBird
 	{
 		struct GameData
 		{
-			bool areRulesBeingShown = false;
+			bool areRulesBeingShown = true;
 			bool isPaused = false;
 			bool isGameOver = false;
 			bool isMultiplayer = true;
