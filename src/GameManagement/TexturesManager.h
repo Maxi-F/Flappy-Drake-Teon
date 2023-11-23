@@ -19,7 +19,8 @@ namespace flappyBird
 			Leaves,
 			FirstLineTrees,
 			SecondLineTrees,
-			BackTrees
+			BackTrees,
+			Tree
 		};
 
 		struct AllTextures
@@ -34,6 +35,7 @@ namespace flappyBird
 			Texture firstLineTrees;
 			Texture secondLineTrees;
 			Texture backTrees;
+			Texture tree;
 		};
 
 		void SetTextures();

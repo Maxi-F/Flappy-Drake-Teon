@@ -1,5 +1,9 @@
 #include "Obstacle.h"
 
+#include "GameManagement/TexturesManager.h"
+
+#include <iostream>
+
 namespace flappyBird
 {
 	namespace game
@@ -43,8 +47,42 @@ namespace flappyBird
 
 			void Draw(Obstacle& obstacle)
 			{
-				DrawRectangle(static_cast<int>(obstacle.pos.x), 0, static_cast<int>(obstacle.size.x), static_cast<int>(obstacle.upperBoxCollider.height), WHITE);
-				DrawRectangle(static_cast<int>(obstacle.pos.x), static_cast<int>(obstacle.lowerBoxCollider.y), static_cast<int>(obstacle.size.x), static_cast<int>(obstacle.lowerBoxCollider.height), WHITE);
+				Texture treeTexture = utilities::GetTexture(utilities::TextureIdentifier::Tree);
+
+				Rectangle source = {
+					0,
+					0,
+					static_cast<float>(treeTexture.width),
+					static_cast<float>(treeTexture.height)
+				};
+				Vector2 origin = {
+					static_cast<float>(treeTexture.width / 2),
+					static_cast<float>(treeTexture.height / 2)
+				};
+
+				Rectangle dest = {
+					origin.x + obstacle.pos.x,
+					origin.y,
+					obstacle.upperBoxCollider.width,
+					obstacle.upperBoxCollider.height
+				};
+
+				DrawTexturePro(treeTexture, source, dest, origin, 0, WHITE);
+
+				Vector2 originBottom = {
+					static_cast<float>(obstacle.lowerBoxCollider.width / 2),
+					static_cast<float>(obstacle.lowerBoxCollider.height / 2)
+				};
+
+
+				Rectangle destBottom = {
+					originBottom.x + obstacle.pos.x,
+					originBottom.y + obstacle.lowerBoxCollider.y,
+					obstacle.lowerBoxCollider.width,
+					obstacle.lowerBoxCollider.height
+				};
+
+				DrawTexturePro(treeTexture, source, destBottom, originBottom, 180, WHITE);
 #ifdef _DEBUG
 				DrawRectangleLines(static_cast<int>(obstacle.pos.x), 0, static_cast<int>(obstacle.upperBoxCollider.width), static_cast<int>(obstacle.upperBoxCollider.height), GREEN);
 				DrawRectangleLines(static_cast<int>(obstacle.pos.x), static_cast<int>(obstacle.lowerBoxCollider.y), static_cast<int>(obstacle.lowerBoxCollider.width), static_cast<int>(obstacle.lowerBoxCollider.height), GREEN);

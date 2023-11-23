@@ -21,7 +21,7 @@ namespace flappyBird
 				bool hasVerticalMovement = false;
 				bool countedPoint[MAX_PLAYERS] = { false, false };
 				float verticalSpeed = 200;
-				const float obstacleOpeningSize = 120;
+				const float obstacleOpeningSize = 150;
 				
 				float speed;
 			};

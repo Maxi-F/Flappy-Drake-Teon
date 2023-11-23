@@ -18,6 +18,7 @@ namespace flappyBird
 			textures.firstLineTrees = LoadTexture("assets/sprites/firstTrees.png");
 			textures.secondLineTrees = LoadTexture("assets/sprites/secondTrees.png");
 			textures.backTrees = LoadTexture("assets/sprites/backTrees.png");
+			textures.tree = LoadTexture("assets/sprites/tree.png");
 		}
 		Texture GetTexture(TextureIdentifier texture)
 		{
@@ -49,6 +50,9 @@ namespace flappyBird
 				break;
 			case TextureIdentifier::PlayerTwoFlying:
 				return textures.playerTwoFlying;
+				break;
+			case TextureIdentifier::Tree:
+				return textures.tree;
 				break;
 			default:
 				return textures.defaultTexture;
