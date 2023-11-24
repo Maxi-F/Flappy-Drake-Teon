@@ -92,13 +92,11 @@ namespace flappyBird
 				{
 					layer[i].pos.x -= speed * layer[i].order * GetFrameTime();
 					if (layer[i].pos.x <= -GetScreenWidth()) {
-						layer[i].pos.x = static_cast<float>(GetScreenWidth());
-
-						// The leaves texture has two pixels less, to unify it
-						// i substract it from the starting x position
-						if (layer[i].id == TextureIdentifier::Leaves) {
-							const int PIXEL_POS_X_MARGIN = 2.0f;
-							layer[i].pos.x = GetScreenWidth() - PIXEL_POS_X_MARGIN;
+						if (i == 0) {
+							layer[i].pos.x = layer[1].pos.x + layer[1].textureSource.width;
+						}
+						else {
+							layer[i].pos.x = layer[0].pos.x + layer[0].textureSource.width;
 						}
 					}
 				}

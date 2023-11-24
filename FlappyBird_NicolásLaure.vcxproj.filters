@@ -99,6 +99,12 @@
     <ClCompile Include="src\GameManagement\Utilities.cpp">
       <Filter>Archivos de origen\utils</Filter>
     </ClCompile>
+    <ClCompile Include="src\GameManagement\DragonsManager.cpp">
+      <Filter>Archivos de origen\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Objects\Dragon.cpp">
+      <Filter>Archivos de origen\entities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\GameManagement\Utilities.h">
@@ -153,6 +159,12 @@
       <Filter>Archivos de encabezado\managers</Filter>
     </ClInclude>
     <ClInclude Include="src\Objects\Player.h">
+      <Filter>Archivos de encabezado\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameManagement\DragonsManager.h">
+      <Filter>Archivos de encabezado\managers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Objects\Dragon.h">
       <Filter>Archivos de encabezado\entities</Filter>
     </ClInclude>
   </ItemGroup>
