@@ -1,5 +1,7 @@
 #include "Objects/Layer.h"
 
+#include <iostream>
+
 #include "GameManagement/Utilities.h"
 
 using namespace flappyBird::utilities;
@@ -89,8 +91,16 @@ namespace flappyBird
 				for (int i = 0; i < LAYERS_ROLL_QTY; i++)
 				{
 					layer[i].pos.x -= speed * layer[i].order * GetFrameTime();
-					if (layer[i].pos.x <= -GetScreenWidth())
+					if (layer[i].pos.x <= -GetScreenWidth()) {
 						layer[i].pos.x = static_cast<float>(GetScreenWidth());
+
+						// The leaves texture has two pixels less, to unify it
+						// i substract it from the starting x position
+						if (layer[i].id == TextureIdentifier::Leaves) {
+							const int PIXEL_POS_X_MARGIN = 2.0f;
+							layer[i].pos.x = GetScreenWidth() - PIXEL_POS_X_MARGIN;
+						}
+					}
 				}
 
 			}
