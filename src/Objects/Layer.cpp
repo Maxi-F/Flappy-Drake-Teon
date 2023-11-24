@@ -15,6 +15,7 @@ namespace flappyBird
 				Vector2 pos;
 				Texture texture;
 				int order;
+				utilities::TextureIdentifier id;
 
 				Rectangle textureSource;
 			};
@@ -67,9 +68,16 @@ namespace flappyBird
 				{
 					layer[i].order = layerDepth;
 					layer[i].texture = GetTexture(id);
+					layer[i].id = id;
 					layer[i].textureSource.width = static_cast<float>(layer[i].texture.width);
 					layer[i].textureSource.height = static_cast<float>(layer[i].texture.height);
-					layer[i].pos = { 0 + layer[i].textureSource.width * i,0 };
+					
+					if (id != TextureIdentifier::Leaves) {
+						layer[i].pos = { layer[i].textureSource.width * i, 0 };
+					}
+					else {
+						layer[i].pos = { layer[i].textureSource.width * i, -300 };
+					}
 				}
 			}
 
