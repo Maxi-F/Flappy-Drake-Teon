@@ -37,7 +37,7 @@ namespace flappyBird
 				}
 			}
 
-			void Update(bool isMultiplayer, bool& shouldReset)
+			void Update(bool isMultiplayer, bool& shouldReset, bool& isPhasingToSecondPhase)
 			{
 				if (isMultiplayer) {
 					for (int i = 0; i < MAX_PLAYERS_QUANTITY; i++) {
@@ -46,6 +46,11 @@ namespace flappyBird
 				}
 				else {
 					player::updatePlayer(players[0]);
+				}
+				const int POINTS_TO_SECOND_PHASE = 10;
+
+				if (AnyPlayerHasMoreThan(POINTS_TO_SECOND_PHASE)) {
+					isPhasingToSecondPhase = true;
 				}
 
 				shouldReset = ShouldReset();
@@ -83,6 +88,15 @@ namespace flappyBird
 
 			int GetPointsOf(int playerIndex) {
 				return players[playerIndex].points;
+			}
+
+			bool AnyPlayerHasMoreThan(int points) {
+				for (int i = 0; i < MAX_PLAYERS_QUANTITY; i++) {
+					if (players[i].points > points) {
+						return true;
+					}
+				}
+				return false;
 			}
 
 			bool ShouldReset() {

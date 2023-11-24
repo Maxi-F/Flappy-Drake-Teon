@@ -11,7 +11,7 @@ namespace flappyBird
 			extern const int MAX_PLAYERS_QUANTITY;
 
 			void Start(bool isMultiplayer);
-			void Update(bool isMultiplayer, bool& shouldReset);
+			void Update(bool isMultiplayer, bool& shouldReset, bool& isPhasingToSecondPhase);
 			void Draw(bool isMultiplayer);
 			
 			Vector2 GetColliderPositionOf(int playerIndex);
@@ -20,6 +20,7 @@ namespace flappyBird
 			void AddPointTo(int playerIndex);
 			void ResetPoints();
 			int GetPointsOf(int playerIndex);
+			bool AnyPlayerHasMoreThan(int points);
 
 			bool PlayerLost(int playerIndex);
 			void SetPlayerLost(int playerIndex);

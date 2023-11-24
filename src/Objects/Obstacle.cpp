@@ -25,7 +25,7 @@ namespace flappyBird
 				obstacle.speed = 500;
 			}
 
-			void Update(Obstacle& obstacle)
+			void Update(Obstacle& obstacle, int& obstaclesPassed, int maxObstacles)
 			{
 				obstacle.pos.x -= obstacle.speed * GetFrameTime();
 
@@ -41,8 +41,12 @@ namespace flappyBird
 				SetColliderPosition(obstacle);
 
 
-				if (obstacle.pos.x + obstacle.size.x < 0)
-					ResetPosition(obstacle);
+				if (obstacle.pos.x + obstacle.size.x < 0) {
+					obstaclesPassed++;
+					if (obstaclesPassed < maxObstacles) {
+						ResetPosition(obstacle);
+					}
+				}
 			}
 
 			void Draw(Obstacle& obstacle)

@@ -59,15 +59,33 @@ namespace flappyBird
 
 			gd.shouldRestart = false;
 			gd.isGameOver = false;
+			gd.isInSecondPhase = false;
+			gd.isPhasingToSecondPhase = false;
+			gd.yPosition = 0;
 			gd.isPaused = false;
 		}
+
 		void Update()
 		{
-			playerManager::Update(gd.isMultiplayer, gd.isGameOver);
-			obstaclesManager::Update();
+			playerManager::Update(gd.isMultiplayer, gd.isGameOver, gd.isPhasingToSecondPhase);
+
 			backGround::Update();
 			CheckCollisions(gd.isMultiplayer);
 			uiManager::update();
+
+			if (gd.isPhasingToSecondPhase) {
+				gd.yPosition = Clamp(gd.yPosition + 500 * GetFrameTime(), 0, static_cast<float>(utilities::TOP_BACKGROUND_Y_POSITION));
+
+				if (gd.yPosition == utilities::TOP_BACKGROUND_Y_POSITION) {
+					gd.isPhasingToSecondPhase = false;
+					gd.isInSecondPhase = true;
+				}
+			}
+
+			if (gd.isInSecondPhase) {}
+			else {
+				obstaclesManager::Update();
+			}
 
 			if (IsMouseButtonPressed(2) || IsKeyPressed(KEY_ESCAPE))
 				gd.isPaused = true;
@@ -77,7 +95,7 @@ namespace flappyBird
 		{
 			BeginDrawing();
 			ClearBackground(BLACK);
-			backGround::Draw();
+			backGround::Draw(static_cast<int>(gd.yPosition));
 			playerManager::Draw(gd.isMultiplayer);
 			obstaclesManager::Draw();
 			uiManager::draw(gd.isMultiplayer);

@@ -96,6 +96,9 @@
     <ClCompile Include="src\Objects\Player.cpp">
       <Filter>Archivos de origen\entities</Filter>
     </ClCompile>
+    <ClCompile Include="src\GameManagement\Utilities.cpp">
+      <Filter>Archivos de origen\utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\GameManagement\Utilities.h">

@@ -165,6 +165,7 @@
     <ClCompile Include="src\GameManagement\ObstaclesManager.cpp" />
     <ClCompile Include="src\GameManagement\TexturesManager.cpp" />
     <ClCompile Include="src\GameManagement\UIManager.cpp" />
+    <ClCompile Include="src\GameManagement\Utilities.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Objects\BackGround.cpp" />
     <ClCompile Include="src\Objects\Button.cpp" />

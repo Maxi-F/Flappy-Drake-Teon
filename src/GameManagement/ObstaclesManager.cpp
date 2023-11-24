@@ -1,5 +1,7 @@
 #include "GameManagement/ObstaclesManager.h"
 
+#include <iostream>
+
 namespace flappyBird
 {
 	namespace game
@@ -9,10 +11,13 @@ namespace flappyBird
 			static obstacle::Obstacle obstacles[OBSTACLES_QTY];
 
 			static float offset = 0;
+			static int obstaclesPassed = 0;
+			static const int MAX_OBSTACLES = 10;
+
 			void Start()
 			{
 				offset = static_cast<float>(GetScreenWidth()) / 2;
-
+				obstaclesPassed = 0;
 				for (int i = 0; i < OBSTACLES_QTY; i++)
 				{
 					obstacle::Start(obstacles[i], offset * i);
@@ -23,7 +28,7 @@ namespace flappyBird
 			{
 				for (int i = 0; i < OBSTACLES_QTY; i++)
 				{
-					obstacle::Update(obstacles[i]);
+					obstacle::Update(obstacles[i], obstaclesPassed, MAX_OBSTACLES);
 				}
 			}
 

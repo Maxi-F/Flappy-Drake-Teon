@@ -19,6 +19,7 @@ namespace flappyBird
 			Leaves,
 			FirstLineTrees,
 			SecondLineTrees,
+			TopBackground,
 			BackTrees,
 			Tree,
 			Rules
@@ -33,6 +34,7 @@ namespace flappyBird
 			Texture playerTwoFlying;
 			Texture ground;
 			Texture leaves;
+			Texture topBackground;
 			Texture firstLineTrees;
 			Texture secondLineTrees;
 			Texture backTrees;

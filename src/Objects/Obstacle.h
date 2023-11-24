@@ -26,7 +26,7 @@ namespace flappyBird
 				float speed;
 			};
 			void Start(Obstacle& obstacle,float offsetX);
-			void Update(Obstacle& obstacle);
+			void Update(Obstacle& obstacle, int& obstaclesPassed, int maxObstacles);
 			void Draw(Obstacle& obstacle);
 
 			void ResetPosition(Obstacle& obstacle);

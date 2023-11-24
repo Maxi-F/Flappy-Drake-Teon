@@ -9,7 +9,7 @@ namespace flappyBird
 		{
 			void Start();
 			void Update();
-			void Draw();
+			void Draw(int yPosition);
 		}
 	}
 }

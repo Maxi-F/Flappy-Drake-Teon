@@ -16,6 +16,7 @@ namespace flappyBird
 			textures.ground = LoadTexture("assets/sprites/ground.png");
 			textures.leaves = LoadTexture("assets/sprites/topLeaves.png");
 			textures.firstLineTrees = LoadTexture("assets/sprites/firstTrees.png");
+			textures.topBackground = LoadTexture("assets/sprites/topBackground.png");
 			textures.secondLineTrees = LoadTexture("assets/sprites/secondTrees.png");
 			textures.backTrees = LoadTexture("assets/sprites/backTrees.png");
 			textures.tree = LoadTexture("assets/sprites/tree.png");
@@ -57,6 +58,9 @@ namespace flappyBird
 				break;
 			case TextureIdentifier::Rules:
 				return textures.rules;
+				break;
+			case TextureIdentifier::TopBackground:
+				return textures.topBackground;
 				break;
 			default:
 				return textures.defaultTexture;

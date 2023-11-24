@@ -9,7 +9,7 @@ namespace flappyBird
 		{
 			void SetAllLayers();
 			void UpdateAllLayers(float speed);
-			void DrawAllLayers();
+			void DrawAllLayers(int yPosition);
 		}
 	}
 }

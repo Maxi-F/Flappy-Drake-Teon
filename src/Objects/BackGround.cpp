@@ -19,9 +19,9 @@ namespace flappyBird
 				layer::UpdateAllLayers(BACKGROUND_SPEED);
 			}
 
-			void Draw()
+			void Draw(int yPosition)
 			{
-				layer::DrawAllLayers();
+				layer::DrawAllLayers(yPosition);
 			}
 
 		}
