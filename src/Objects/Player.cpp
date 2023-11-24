@@ -30,7 +30,7 @@ namespace flappyBird {
 
 				Move(player);
 
-				if (player.pos.y + player.size.y / 2 >= GetScreenHeight() - player.size.y / 2)
+				if (player.pos.y >= GetScreenHeight())
 					player.lost = true;
 
 				player.isPullingUp = player.velocity.y < 0;
@@ -71,7 +71,7 @@ namespace flappyBird {
 			void Move(Player& player)
 			{
 				Vector2 playerMinPos = { player.pos.x,0 };
-				Vector2 playerMaxPos = { player.pos.x, static_cast<float>(GetScreenHeight()) - player.size.y };
+				Vector2 playerMaxPos = { player.pos.x, static_cast<float>(GetScreenHeight()) };
 				player.pos = Vector2Clamp(Vector2Add(player.pos, Vector2Scale(player.velocity, GetFrameTime())), playerMinPos, playerMaxPos);
 			}
 		}
