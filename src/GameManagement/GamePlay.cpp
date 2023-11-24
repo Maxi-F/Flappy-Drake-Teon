@@ -4,6 +4,7 @@
 #include "GameManagement/GameData.h"
 #include "Objects/PlayerManager.h"
 #include "GameManagement/ObstaclesManager.h"
+#include "GameManagement/DragonsManager.h"
 #include "Objects/BackGround.h"
 #include "GameManagement/CollisionHandler.h"
 #include "GameManagement/UIManager.h"
@@ -54,6 +55,7 @@ namespace flappyBird
 		{
 			playerManager::Start(gd.isMultiplayer);
 			obstaclesManager::Start();
+			dragonsManager::Start();
 			backGround::Start();
 			uiManager::init();
 
@@ -70,7 +72,7 @@ namespace flappyBird
 			playerManager::Update(gd.isMultiplayer, gd.isGameOver, gd.isPhasingToSecondPhase);
 
 			backGround::Update();
-			CheckCollisions(gd.isMultiplayer);
+			CheckCollisions(gd.isMultiplayer, gd.isInSecondPhase);
 			uiManager::update();
 
 			if (gd.isPhasingToSecondPhase) {
@@ -82,7 +84,9 @@ namespace flappyBird
 				}
 			}
 
-			if (gd.isInSecondPhase) {}
+			if (gd.isInSecondPhase) {
+				dragonsManager::Update();
+			}
 			else {
 				obstaclesManager::Update();
 			}
@@ -97,7 +101,13 @@ namespace flappyBird
 			ClearBackground(BLACK);
 			backGround::Draw(static_cast<int>(gd.yPosition));
 			playerManager::Draw(gd.isMultiplayer);
-			obstaclesManager::Draw();
+
+			if (gd.isInSecondPhase) {
+				dragonsManager::Draw();
+			}
+			else {
+				obstaclesManager::Draw();
+			}
 			uiManager::draw(gd.isMultiplayer);
 			EndDrawing();
 		}

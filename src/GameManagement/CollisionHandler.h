@@ -4,6 +4,6 @@ namespace flappyBird
 {
 	namespace game
 	{
-		void CheckCollisions(bool isMultiplayer);
+		void CheckCollisions(bool isMultiplayer, bool isInSecondPhase);
 	}
 }
