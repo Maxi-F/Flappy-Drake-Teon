@@ -7,6 +7,7 @@
 #include "GameManagement/Menu.h"
 #include "GameManagement/Utilities.h"
 #include "GameManagement/SceneManager.h"
+#include "GameManagement/SfxManager.h"
 
 namespace flappyBird
 {
@@ -16,25 +17,31 @@ namespace flappyBird
 	static SceneManager sceneManager;
 
 	void Initialize();
+	void Close();
 	void GameLoop();
 
 	void RunGame()
 	{
 		Initialize();
 		GameLoop();
-		//CloseAudioDevice();
+		CloseAudioDevice();
 		CloseWindow();
 	}
 
 	void Initialize()
 	{
 		InitWindow(1280, 720, "Flappy Drake");
-		//InitAudioDevice();
+		InitAudioDevice();
 		SetExitKey(NULL);
 		sceneManager.prevScene = Scenes::GameQuit;
+		sfxManager::Init();
 		utilities::SetTextures();
-		//SetSounds();
 		SetRandomSeed(static_cast<unsigned int>(time(nullptr)));
+	}
+
+	void Close() {
+		sfxManager::Unload();
+		utilities::UnloadTextures();
 	}
 
 	void GameLoop()
@@ -61,5 +68,7 @@ namespace flappyBird
 				break;
 			}
 		} while (sceneManager.currentScene != Scenes::GameQuit && !WindowShouldClose());
+
+		Close();
 	}
 }

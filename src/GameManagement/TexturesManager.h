@@ -44,5 +44,6 @@ namespace flappyBird
 
 		void SetTextures();
 		Texture GetTexture(TextureIdentifier texture);
+		void UnloadTextures();
 	}
 }

@@ -18,12 +18,13 @@ namespace flappyBird {
 			MUSIC_COUNT
 		};
 
-		void init();
-		void stopAllSounds();
-		void playSound(SfxName name, bool shouldOverlap);
-		void stopSound(SfxName sfxName);
-		void playMusic(MusicName name);
-		void updateMusic(MusicName musicName);
-		void stopAllMusic();
+		void Init();
+		void StopAllSounds();
+		void PlaySound(SfxName name, bool shouldOverlap);
+		void StopSound(SfxName sfxName);
+		void PlayMusic(MusicName name);
+		void UpdateMusic(MusicName musicName);
+		void StopAllMusic();
+		void Unload();
 	}
 }

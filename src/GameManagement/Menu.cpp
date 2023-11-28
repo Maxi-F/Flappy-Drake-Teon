@@ -2,8 +2,7 @@
 
 #include "Objects/Button.h"
 #include "Objects/UI.h"
-//#include "GameManagement/AudioManager.h"
-#include <iostream>
+#include "GameManagement/SfxManager.h"
 
 namespace flappyBird
 {
@@ -41,8 +40,10 @@ namespace flappyBird
 
 	void MenuScene(bool isNewScene, Scenes& actualScene)
 	{
-		if (isNewScene)
+		if (isNewScene) {
 			MenuStart();
+			
+		}
 
 		MenuUpdate(actualScene);
 		MenuDraw();
@@ -50,8 +51,8 @@ namespace flappyBird
 	void MenuStart()
 	{
 		Vector2 textSize = { 0,0 };
-
-		//PlayMusicStream(GetMusic(MusicIdentifier::MenuMusic));
+		sfxManager::StopAllMusic();
+		sfxManager::PlayMusic(sfxManager::MENU);
 		float windowLimitSpacing = 20;
 		textSize = MeasureTextEx(
 			GetFontDefault(),
@@ -92,7 +93,7 @@ namespace flappyBird
 	}
 	void MenuUpdate(Scenes& scene)
 	{
-		//UpdateMusicStream(GetMusic(MusicIdentifier::MenuMusic));
+		sfxManager::UpdateMusic(sfxManager::MENU);
 		if (!menuData.showCreditsScreen)
 		{
 			ItchPageButtonCollisionCheck(menuData.creatorItchPageButton, "https://nico-drake.itch.io/");

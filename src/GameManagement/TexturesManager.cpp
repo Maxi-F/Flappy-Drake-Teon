@@ -67,5 +67,21 @@ namespace flappyBird
 				break;
 			}
 		}
+
+		void UnloadTextures() {
+			UnloadTexture(textures.defaultTexture);
+			UnloadTexture(textures.playerIdle);
+			UnloadTexture(textures.playerFlying);
+			UnloadTexture(textures.playerTwoIdle);
+			UnloadTexture(textures.playerTwoFlying);
+			UnloadTexture(textures.ground);
+			UnloadTexture(textures.leaves);
+			UnloadTexture(textures.firstLineTrees);
+			UnloadTexture(textures.topBackground);
+			UnloadTexture(textures.secondLineTrees);
+			UnloadTexture(textures.backTrees);
+			UnloadTexture(textures.tree);
+			UnloadTexture(textures.rules);
+		}
 	}
 }

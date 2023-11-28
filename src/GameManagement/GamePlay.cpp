@@ -7,6 +7,7 @@
 #include "GameManagement/DragonsManager.h"
 #include "Objects/BackGround.h"
 #include "GameManagement/CollisionHandler.h"
+#include "GameManagement/SfxManager.h"
 #include "GameManagement/UIManager.h"
 #include "Objects/UI.h"
 
@@ -53,6 +54,8 @@ namespace flappyBird
 
 		void Start()
 		{
+			sfxManager::StopAllMusic();
+			sfxManager::PlayMusic(sfxManager::GAMEPLAY);
 			playerManager::Start(gd.isMultiplayer);
 			obstaclesManager::Start();
 			dragonsManager::Start();
@@ -69,8 +72,9 @@ namespace flappyBird
 
 		void Update()
 		{
-			playerManager::Update(gd.isMultiplayer, gd.isGameOver, gd.isPhasingToSecondPhase);
+			sfxManager::UpdateMusic(sfxManager::GAMEPLAY);
 
+			playerManager::Update(gd.isMultiplayer, gd.isGameOver, gd.isPhasingToSecondPhase);
 			backGround::Update();
 			CheckCollisions(gd.isMultiplayer, gd.isInSecondPhase);
 			uiManager::update();

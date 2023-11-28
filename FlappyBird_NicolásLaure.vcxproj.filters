@@ -105,6 +105,9 @@
     <ClCompile Include="src\Objects\Dragon.cpp">
       <Filter>Archivos de origen\entities</Filter>
     </ClCompile>
+    <ClCompile Include="src\GameManagement\SfxManager.cpp">
+      <Filter>Archivos de origen\managers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\GameManagement\Utilities.h">
@@ -166,6 +169,9 @@
     </ClInclude>
     <ClInclude Include="src\Objects\Dragon.h">
       <Filter>Archivos de encabezado\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameManagement\SfxManager.h">
+      <Filter>Archivos de encabezado\managers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
