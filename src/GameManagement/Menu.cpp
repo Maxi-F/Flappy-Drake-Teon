@@ -159,10 +159,10 @@ namespace flappyBird
 				 "MUSIC: Epic Chase by MaxKoMusic: https://maxkomusic.com/albums/no-copyright-music/ (40)",
 				 "MUSIC: Savage by Alex-Productions: https://onsound.eu/track/savage-cinematic/",
 				 "SOUND: Computer mouse click by florianreichelt: https://freesound.org/people/florianreichelt/sounds/683099/",
-				 "SOUND: Bronze dragon fly by melissapons: https://freesound.org/people/melissapons/sounds/162141/",
 				 "SOUND: Hacha contra Metal by Josethehedgehog: https://freesound.org/people/Josethehedgehog/sounds/390377/",
+				 "SOUND: Retro Jump 01 by MATRIXXX_: https://freesound.org/people/MATRIXXX_/sounds/458258/",
+				 "SOUND: Retro Jump 03 by MATRIXXX_: https://freesound.org/people/MATRIXXX_/sounds/458884/"
 				 "SOUND: Retro, Drop 02 by MATRIXXX_: https://freesound.org/people/MATRIXXX_/sounds/415990/",
-				 "SOUND: Dragon wings part 2 by GET_Accel: https://freesound.org/people/GET_Accel/sounds/427253/"
 			};
 
 			for (int i = 0; i < CREDITS_TEXTS_QUANTITY; i++) {
