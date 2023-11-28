@@ -45,7 +45,7 @@ namespace flappyBird {
 		{
 			float posY = static_cast<float>(
 				GetRandomValue(
-					static_cast<int>(dragon.size.y), 
+					0, 
 					static_cast<int>(GetScreenHeight()
 					- dragon.size.y)
 				));
@@ -55,7 +55,7 @@ namespace flappyBird {
 		void ResetPosition(Dragon& dragon)
 		{
 			float posY = static_cast<float>(GetRandomValue(
-				static_cast<int>(dragon.size.y),
+				0,
 				static_cast<int>(GetScreenHeight()
 					- dragon.size.y)
 			));
