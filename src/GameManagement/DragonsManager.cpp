@@ -6,7 +6,7 @@
 namespace flappyBird {
 	namespace game {
 		namespace dragonsManager {
-			extern const int DRAGONS_QUANTITY = 4;
+			extern const int DRAGONS_QUANTITY = 8;
 
 			static dragon::Dragon dragons[DRAGONS_QUANTITY];
 		

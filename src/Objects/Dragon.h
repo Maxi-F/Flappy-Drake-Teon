@@ -1,5 +1,6 @@
 #pragma once
 #include "GameManagement/Utilities.h"
+#include "GameManagement/Timer.h"
 
 namespace flappyBird {
 	namespace dragon {
@@ -8,8 +9,11 @@ namespace flappyBird {
 		struct Dragon
 		{
 			Vector2 pos;
-			Vector2 size = { 100, 180 };
+			Vector2 size = { 96, 96 };
+			Vector2 collisionSize = { 76, 76 };
 			Vector2 offset;
+			timer::Timer animationTimer;
+			float animationTime;
 
 			float velocity;
 			bool countedPoint[MAX_PLAYERS] = { false, false };

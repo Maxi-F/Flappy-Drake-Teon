@@ -16,6 +16,7 @@ namespace flappyBird
 			textures.ground = LoadTexture("assets/sprites/ground.png");
 			textures.leaves = LoadTexture("assets/sprites/topLeaves.png");
 			textures.firstLineTrees = LoadTexture("assets/sprites/firstTrees.png");
+			textures.brassDragonSheet = LoadTexture("assets/sprites/MatureBrassDragonSheet.png");
 			textures.topBackground = LoadTexture("assets/sprites/topBackground.png");
 			textures.secondLineTrees = LoadTexture("assets/sprites/secondTrees.png");
 			textures.backTrees = LoadTexture("assets/sprites/backTrees.png");
@@ -62,6 +63,9 @@ namespace flappyBird
 			case TextureIdentifier::TopBackground:
 				return textures.topBackground;
 				break;
+			case TextureIdentifier::BrassDragonSheet:
+				return textures.brassDragonSheet;
+				break;
 			default:
 				return textures.defaultTexture;
 				break;
@@ -78,6 +82,7 @@ namespace flappyBird
 			UnloadTexture(textures.leaves);
 			UnloadTexture(textures.firstLineTrees);
 			UnloadTexture(textures.topBackground);
+			UnloadTexture(textures.brassDragonSheet);
 			UnloadTexture(textures.secondLineTrees);
 			UnloadTexture(textures.backTrees);
 			UnloadTexture(textures.tree);

@@ -19,6 +19,7 @@ namespace flappyBird
 			Leaves,
 			FirstLineTrees,
 			SecondLineTrees,
+			BrassDragonSheet,
 			TopBackground,
 			BackTrees,
 			Tree,
@@ -38,6 +39,7 @@ namespace flappyBird
 			Texture firstLineTrees;
 			Texture secondLineTrees;
 			Texture backTrees;
+			Texture brassDragonSheet;
 			Texture tree;
 			Texture rules;
 		};

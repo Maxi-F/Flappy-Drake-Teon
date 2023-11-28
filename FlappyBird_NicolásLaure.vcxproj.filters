@@ -108,6 +108,9 @@
     <ClCompile Include="src\GameManagement\SfxManager.cpp">
       <Filter>Archivos de origen\managers</Filter>
     </ClCompile>
+    <ClCompile Include="src\GameManagement\Timer.cpp">
+      <Filter>Archivos de origen\utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\GameManagement\Utilities.h">
@@ -172,6 +175,9 @@
     </ClInclude>
     <ClInclude Include="src\GameManagement\SfxManager.h">
       <Filter>Archivos de encabezado\managers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameManagement\Timer.h">
+      <Filter>Archivos de encabezado\utils</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
