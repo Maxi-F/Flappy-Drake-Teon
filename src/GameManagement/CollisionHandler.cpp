@@ -2,6 +2,7 @@
 
 #include "GameManagement/Utilities.h"
 #include "GameManagement/ObstaclesManager.h"
+#include "GameManagement/SfxManager.h"
 #include "GameManagement/DragonsManager.h"
 #include "GameManagement/GamePlay.h"
 #include "Objects/PlayerManager.h"
@@ -32,6 +33,7 @@ namespace flappyBird
 					for (int j = 0; j < playerManager::MAX_PLAYERS_QUANTITY; j++) {
 						if (CheckDragonPlayerCollision(j, i) && !playerManager::PlayerLost(j))
 						{
+							sfxManager::PlaySound(sfxManager::COLLISION, true);
 							playerManager::SetPlayerLost(j);
 						}
 						else if (!playerManager::PlayerLost(j)) {
@@ -41,6 +43,7 @@ namespace flappyBird
 				}
 				else {
 					if (CheckDragonPlayerCollision(0, i)) {
+						sfxManager::PlaySound(sfxManager::COLLISION, true);
 						playerManager::SetPlayerLost(0);
 					}
 					else {
@@ -57,6 +60,7 @@ namespace flappyBird
 					for (int j = 0; j < playerManager::MAX_PLAYERS_QUANTITY; j++) {
 						if (CheckCollisionsForPlayer(j, i) && !playerManager::PlayerLost(j))
 						{
+							sfxManager::PlaySound(sfxManager::COLLISION, true);
 							playerManager::SetPlayerLost(j);
 						}
 						else if (!playerManager::PlayerLost(j)) {
@@ -67,6 +71,7 @@ namespace flappyBird
 				else {
 					if (CheckCollisionsForPlayer(0, i))
 					{
+						sfxManager::PlaySound(sfxManager::COLLISION, true);
 						playerManager::SetPlayerLost(0);
 					}
 					else {

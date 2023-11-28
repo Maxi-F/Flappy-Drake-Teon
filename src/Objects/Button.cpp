@@ -1,6 +1,6 @@
 #include "Button.h"
 
-//#include "GameManagement/AudioManager.h"
+#include "GameManagement/SfxManager.h"
 
 namespace flappyBird
 {
@@ -20,8 +20,6 @@ namespace flappyBird
 			if (IsMouseButtonPressed(0))
 			{
 				button.wasPressed = true;
-				/*if (!IsSoundPlaying(GetSound(SoundIdentifier::ButtonClick)))
-					PlaySound(GetSound(SoundIdentifier::ButtonClick));*/
 			}
 
 			if (IsMouseButtonDown(0) && button.wasPressed)
@@ -34,8 +32,7 @@ namespace flappyBird
 			{
 				if (button.wasPressed)
 				{
-					/*if (!IsSoundPlaying(GetSound(SoundIdentifier::ButtonRelease)))
-						PlaySound(GetSound(SoundIdentifier::ButtonRelease));*/
+					sfxManager::PlaySound(sfxManager::CLICK, true);
 					scene = button.sceneTo;
 				}
 			}
@@ -62,8 +59,6 @@ namespace flappyBird
 			if (IsMouseButtonPressed(0))
 			{
 				button.wasPressed = true;
-				/*if (!IsSoundPlaying(GetSound(SoundIdentifier::ButtonClick)))
-					PlaySound(GetSound(SoundIdentifier::ButtonClick));*/
 			}
 
 			if (IsMouseButtonDown(0) && button.wasPressed)
@@ -78,8 +73,7 @@ namespace flappyBird
 				if (button.wasPressed)
 				{
 					OpenURL(link);
-				/*	if (!IsSoundPlaying(GetSound(SoundIdentifier::ButtonRelease)))
-						PlaySound(GetSound(SoundIdentifier::ButtonRelease));*/
+					sfxManager::PlaySound(sfxManager::CLICK, true);
 				}
 			}
 		}
@@ -105,8 +99,6 @@ namespace flappyBird
 			if (IsMouseButtonPressed(0))
 			{
 				button.wasPressed = true;
-				/*if (!IsSoundPlaying(GetSound(SoundIdentifier::ButtonClick)))
-					PlaySound(GetSound(SoundIdentifier::ButtonClick));*/
 			}
 
 			if (IsMouseButtonDown(0) && button.wasPressed)
@@ -125,8 +117,7 @@ namespace flappyBird
 					else
 						creditsScreen = false;
 
-					/*if (!IsSoundPlaying(GetSound(SoundIdentifier::ButtonRelease)))
-						PlaySound(GetSound(SoundIdentifier::ButtonRelease));*/
+					sfxManager::PlaySound(sfxManager::CLICK, true);
 				}
 			}
 		}
@@ -152,8 +143,6 @@ namespace flappyBird
 			if (IsMouseButtonPressed(0))
 			{
 				button.wasPressed = true;
-				/*if (!IsSoundPlaying(GetSound(SoundIdentifier::ButtonClick)))
-					PlaySound(GetSound(SoundIdentifier::ButtonClick));*/
 			}
 
 			if (IsMouseButtonDown(0) && button.wasPressed)
@@ -167,8 +156,7 @@ namespace flappyBird
 			{
 				if (button.wasPressed)
 				{
-					/*if (!IsSoundPlaying(GetSound(SoundIdentifier::ButtonRelease)))
-						PlaySound(GetSound(SoundIdentifier::ButtonRelease));*/
+					sfxManager::PlaySound(sfxManager::CLICK, true);
 					restartGame = true;
 				}
 			}

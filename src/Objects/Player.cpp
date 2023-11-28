@@ -21,6 +21,7 @@ namespace flappyBird {
 				{
 					if (player.canPullUp)
 					{
+						sfxManager::PlaySound(player.wingsSound, true);
 						player.velocity.y = 0;
 						player.velocity.y -= player.jumpForce;
 						player.angle = player.jumpAngle;
@@ -30,8 +31,12 @@ namespace flappyBird {
 
 				Move(player);
 
-				if (player.pos.y >= GetScreenHeight())
+				if (player.pos.y >= GetScreenHeight()) {
+					if (!player.lost) {
+						sfxManager::PlaySound(sfxManager::DROP, true);
+					}
 					player.lost = true;
+				}
 
 				player.isPullingUp = player.velocity.y < 0;
 

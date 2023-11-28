@@ -22,6 +22,7 @@ namespace flappyBird
 				players[0].lost = false;
 				players[0].idleTexture = utilities::TextureIdentifier::PlayerIdle;
 				players[0].flyingTexture = utilities::TextureIdentifier::PlayerFlying;
+				players[0].wingsSound = sfxManager::RED_DRAGON_WINGS;
 
 				if (isMultiplayer) {
 					player::ResetPos(players[1]);
@@ -31,6 +32,7 @@ namespace flappyBird
 
 					players[1].idleTexture = utilities::TextureIdentifier::PlayerTwoIdle;
 					players[1].flyingTexture = utilities::TextureIdentifier::PlayerTwoFlying;
+					players[1].wingsSound = sfxManager::GREEN_DRAGON_WINGS;
 				}
 				else {
 					players[1].lost = true;

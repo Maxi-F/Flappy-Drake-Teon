@@ -1,5 +1,6 @@
 #pragma once
 #include "GameManagement/Utilities.h"
+#include "GameManagement/SfxManager.h"
 
 namespace flappyBird {
 	namespace game {
@@ -10,6 +11,7 @@ namespace flappyBird {
 				KeyboardKey upKey;
 				utilities::TextureIdentifier idleTexture;
 				utilities::TextureIdentifier flyingTexture;
+				sfxManager::SfxName wingsSound;
 
 				Vector2 size{ 50,50 };
 				float colliderRadius{ 20 };
