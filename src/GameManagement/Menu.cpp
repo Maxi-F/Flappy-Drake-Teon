@@ -144,22 +144,37 @@ namespace flappyBird
 		else
 		{
 			Color panelColor = { 50,50,50,255 };
+			const int CREDITS_TEXTS_QUANTITY = 11;
 			DrawRectangle(0, 0, GetScreenWidth(), GetScreenHeight(), panelColor);
 
-			int creditsSize = 25;
+			int creditsSize = 20;
 			int creditsHorizontalDisplacement = 20;
-			int creditsSpacing = 70;
+			int creditsSpacing = 40;
 			//const char* santiText = "Player And Asteroids by Santiago Garrido instagram: @tains_art";
-			const char* nicoText = "Programming made by Nicolas Laure: https://nico-drake.itch.io";
-			const char* maxiText = "Extension made by Maxi Feldman: https://teonnn.itch.io";
-			const char* backGroundText = "Background by Eder Munizz: https://edermunizz.itch.io/free-pixel-art-forest";
-			const char* dragonsText = "Dragon sprites by DeepDiveGameStudio https://deepdivegamestudio.itch.io/dragon-asset-pack";
+			const char* credits[CREDITS_TEXTS_QUANTITY]{
+				 "Programming made by Nicolas Laure: https://nico-drake.itch.io",
+				 "Extension made by Maxi Feldman: https://teonnn.itch.io",
+				 "Background by Eder Munizz: https://edermunizz.itch.io/free-pixel-art-forest",
+				 "Dragon sprites by DeepDiveGameStudio: https://deepdivegamestudio.itch.io/dragon-asset-pack",
+				 "MUSIC: Epic Chase by MaxKoMusic: https://maxkomusic.com/albums/no-copyright-music/ (40)",
+				 "MUSIC: Savage by Alex-Productions: https://onsound.eu/track/savage-cinematic/",
+				 "SOUND: Computer mouse click by florianreichelt: https://freesound.org/people/florianreichelt/sounds/683099/",
+				 "SOUND: Bronze dragon fly by melissapons: https://freesound.org/people/melissapons/sounds/162141/",
+				 "SOUND: Hacha contra Metal by Josethehedgehog: https://freesound.org/people/Josethehedgehog/sounds/390377/",
+				 "SOUND: Retro, Drop 02 by MATRIXXX_: https://freesound.org/people/MATRIXXX_/sounds/415990/",
+				 "SOUND: Dragon wings part 2 by GET_Accel: https://freesound.org/people/GET_Accel/sounds/427253/"
+			};
 
-			//DrawText(santiText, creditsHorizontalDisplacement, GetScreenHeight() / 2 - creditsSpacing * 2, creditsSize, WHITE);
-			DrawText(nicoText, creditsHorizontalDisplacement, GetScreenHeight() / 2 - creditsSpacing * 3, creditsSize, WHITE);
-			DrawText(maxiText, creditsHorizontalDisplacement, GetScreenHeight() / 2 - creditsSpacing * 2, creditsSize, WHITE);
-			DrawText(dragonsText, creditsHorizontalDisplacement, GetScreenHeight() / 2 - creditsSpacing, creditsSize, WHITE);
-			DrawText(backGroundText, creditsHorizontalDisplacement, GetScreenHeight() / 2, creditsSize, WHITE);
+			for (int i = 0; i < CREDITS_TEXTS_QUANTITY; i++) {
+				DrawText(
+					credits[i],
+					creditsHorizontalDisplacement,
+					3 * GetScreenHeight() / 4 - creditsSpacing * (CREDITS_TEXTS_QUANTITY - i - 1),
+					creditsSize,
+					WHITE
+				);
+			}
+			
 			const char* title = "Credits";
 			int titleSize = 70;
 			int verticalDisplacement = 20;
