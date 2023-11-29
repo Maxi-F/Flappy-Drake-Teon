@@ -90,7 +90,6 @@ namespace flappyBird
 			{
 				for (int i = 0; i < LAYERS_ROLL_QTY; i++)
 				{
-					layer[i].pos.x -= speed * layer[i].order * GetFrameTime();
 					if (layer[i].pos.x <= -GetScreenWidth()) {
 						if (i == 0) {
 							layer[i].pos.x = layer[1].pos.x + layer[1].textureSource.width;
@@ -99,6 +98,7 @@ namespace flappyBird
 							layer[i].pos.x = layer[0].pos.x + layer[0].textureSource.width;
 						}
 					}
+					layer[i].pos.x -= speed * layer[i].order * GetFrameTime();
 				}
 
 			}
