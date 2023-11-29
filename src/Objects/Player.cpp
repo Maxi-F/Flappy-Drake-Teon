@@ -8,7 +8,7 @@ namespace flappyBird
 		{
 			static const float GRAVITY = 1000.0f;
 
-			void updatePlayer(Player& player) 
+			void UpdatePlayer(Player& player) 
 			{
 				player.velocity.y += GRAVITY * GetFrameTime();
 
@@ -50,7 +50,7 @@ namespace flappyBird
 					player.angle += player.rotationSpeed * GetFrameTime();
 			}
 
-			void drawPlayer(Player player) 
+			void DrawPlayer(Player player) 
 			{
 				const int PLAYER_SPRITE_SIZE = 64;
 

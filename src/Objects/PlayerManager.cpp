@@ -1,6 +1,5 @@
 #include "Objects/PlayerManager.h"
 
-#include "GameManagement/TexturesManager.h"
 #include "Objects/Player.h"
 
 namespace flappyBird
@@ -47,12 +46,12 @@ namespace flappyBird
 				{
 					for (int i = 0; i < MAX_PLAYERS_QUANTITY; i++) 
 					{
-						player::updatePlayer(players[i]);
+						player::UpdatePlayer(players[i]);
 					}
 				}
 				else 
 				{
-					player::updatePlayer(players[0]);
+					player::UpdatePlayer(players[0]);
 				}
 				const int POINTS_TO_SECOND_PHASE = 10;
 
@@ -70,12 +69,12 @@ namespace flappyBird
 				{
 					for (int i = 0; i < MAX_PLAYERS_QUANTITY; i++) 
 					{
-						player::drawPlayer(players[i]);
+						player::DrawPlayer(players[i]);
 					}
 				}
 				else 
 				{
-					player::drawPlayer(players[0]);
+					player::DrawPlayer(players[0]);
 				}
 			}
 			

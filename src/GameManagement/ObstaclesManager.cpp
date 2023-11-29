@@ -1,6 +1,7 @@
 #include "GameManagement/ObstaclesManager.h"
 
-#include <iostream>
+#include "Objects/Obstacle.h"
+#include "Objects/PlayerManager.h"
 
 namespace flappyBird
 {

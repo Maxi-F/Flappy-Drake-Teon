@@ -61,7 +61,7 @@ namespace flappyBird
 			obstaclesManager::Start();
 			dragonsManager::Start();
 			backGround::Start();
-			uiManager::init();
+			uiManager::Init();
 
 			gd.shouldRestart = false;
 			gd.isGameOver = false;
@@ -78,7 +78,7 @@ namespace flappyBird
 			playerManager::Update(gd.isMultiplayer, gd.isGameOver, gd.isPhasingToSecondPhase);
 			backGround::Update();
 			CheckCollisions(gd.isMultiplayer, gd.isInSecondPhase);
-			uiManager::update();
+			uiManager::Update();
 
 			if (gd.isPhasingToSecondPhase) 
 			{
@@ -118,7 +118,7 @@ namespace flappyBird
 			else {
 				obstaclesManager::Draw();
 			}
-			uiManager::draw(gd.isMultiplayer);
+			uiManager::Draw(gd.isMultiplayer);
 			EndDrawing();
 		}
 

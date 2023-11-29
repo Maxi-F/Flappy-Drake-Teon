@@ -1,6 +1,5 @@
 #pragma once
-#include "Objects/Obstacle.h"
-#include "Objects/PlayerManager.h"
+#include "GameManagement/Utilities.h"
 
 namespace flappyBird
 {

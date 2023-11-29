@@ -1,6 +1,6 @@
 #include "GameManagement/GameLoop.h"
 
-#include <iostream>
+#include <time.h>
 #include "raylib/raylib.h"
 
 #include "GameManagement/Gameplay.h"

@@ -1,4 +1,8 @@
 #pragma once
+/*
+	In this codebase, including "GameManagement/Utilities.h" already
+	includes raylib, raymath and the texturesManager.
+*/
 #include "raylib/raylib.h"
 #include "raylib/raymath.h"
 

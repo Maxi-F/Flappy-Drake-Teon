@@ -1,6 +1,4 @@
 #pragma once
-#include "GameManagement/Utilities.h"
-
 namespace flappyBird
 {
 	namespace game

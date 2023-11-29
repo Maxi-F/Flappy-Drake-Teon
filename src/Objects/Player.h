@@ -41,8 +41,8 @@ namespace flappyBird
 				bool lost = false;
 			};
 
-			void updatePlayer(Player& player);
-			void drawPlayer(Player player);
+			void UpdatePlayer(Player& player);
+			void DrawPlayer(Player player);
 			Vector2 GetColliderPosition(Player player);
 			float GetRadius(Player player);
 			void ResetPos(Player& player);

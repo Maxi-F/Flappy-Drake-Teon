@@ -1,7 +1,5 @@
 #include "Objects/Dragon.h"
 
-#include "GameManagement/TexturesManager.h"
-
 namespace flappyBird 
 {
 	namespace dragon 

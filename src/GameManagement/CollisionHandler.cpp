@@ -4,7 +4,6 @@
 #include "GameManagement/ObstaclesManager.h"
 #include "GameManagement/SfxManager.h"
 #include "GameManagement/DragonsManager.h"
-#include "GameManagement/GamePlay.h"
 #include "Objects/PlayerManager.h"
 
 namespace flappyBird

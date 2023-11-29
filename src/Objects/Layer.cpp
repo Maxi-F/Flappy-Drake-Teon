@@ -1,7 +1,5 @@
 #include "Objects/Layer.h"
 
-#include <iostream>
-
 #include "GameManagement/Utilities.h"
 
 using namespace flappyBird::utilities;
@@ -28,10 +26,6 @@ namespace flappyBird
 			static Layer firstLineTrees[LAYERS_ROLL_QTY];
 			static Layer secondLineTrees[LAYERS_ROLL_QTY];
 			static Layer backLineTrees[LAYERS_ROLL_QTY];
-
-			/*void SetLayer(Layer& layer, TextureIdentifier id, int layerDepth);
-			void UpdateLayer(Layer& layer, float speed);
-			void DrawLayer(Layer& layer);*/
 
 			void SetLayer(Layer layer[], TextureIdentifier id, int layerDepth);
 			void UpdateLayer(Layer layer[], float speed);

@@ -2,8 +2,6 @@
 
 #include "GameManagement/TexturesManager.h"
 
-#include <iostream>
-
 namespace flappyBird
 {
 	namespace game

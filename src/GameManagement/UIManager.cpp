@@ -10,9 +10,9 @@ namespace flappyBird
 	{
 		namespace uiManager 
 		{
-			void init() {};
-			void update() {};
-			void draw(bool isMultiplayer)
+			void Init() {};
+			void Update() {};
+			void Draw(bool isMultiplayer)
 			{
 				const int MARGIN = 10;
 				const int SIZE = 32;
