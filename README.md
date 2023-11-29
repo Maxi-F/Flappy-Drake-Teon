@@ -1,5 +1,6 @@
-<IMAGE>
-  
+
+  ![COVER](https://github.com/Maxi-F/Flappy-Drake-Teon/assets/21026390/2633deb1-253f-47ce-b8d9-1cdeee73828a)
+
 # Flappy Drake Teon
 A Flappy (bird) dragons game!
 
