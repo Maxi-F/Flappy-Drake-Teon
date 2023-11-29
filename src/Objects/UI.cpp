@@ -21,7 +21,7 @@ namespace flappyBird
 		
 		void DrawVersionText()
 		{
-			const char* versionText = "0.3";
+			const char* versionText = "1.0";
 			Vector2 textSize = MeasureTextEx(GetFontDefault(), versionText, fontSize, SPACING);
 			DrawText(versionText, GetScreenWidth() - static_cast<int>(textSize.x), 0, static_cast<int>(fontSize), WHITE);
 		}
