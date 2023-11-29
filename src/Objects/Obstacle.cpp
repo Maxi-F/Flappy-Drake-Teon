@@ -122,7 +122,7 @@ namespace flappyBird
 				if (doesObstacleMove)
 				{
 					obstacle.hasVerticalMovement = true;
-					bool goesUp = GetRandomValue(1, 1 / GOES_UP_PROBABILITY) == 1;
+					bool goesUp = GetRandomValue(1, static_cast<int>(1 / GOES_UP_PROBABILITY)) == 1;
 					if ((goesUp && obstacle.verticalSpeed > 0) || (!goesUp && obstacle.verticalSpeed < 0))
 						obstacle.verticalSpeed *= -1;
 				}
