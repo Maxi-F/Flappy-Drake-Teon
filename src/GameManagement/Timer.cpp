@@ -17,12 +17,14 @@ namespace flappyBird {
             return !timer.paused && GetTime() - timer.startTime >= timer.lifeTime;
         }
 
-        void PauseTimer(Timer* timer) {
+        void PauseTimer(Timer* timer) 
+        {
             timer->pauseTime = GetTime();
             timer->paused = true;
         }
 
-        void UnPauseTimer(Timer* timer) {
+        void UnPauseTimer(Timer* timer)
+        {
             timer->startTime += GetTime() - timer->pauseTime;
             timer->paused = false;
         }

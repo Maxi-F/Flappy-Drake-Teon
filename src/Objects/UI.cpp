@@ -59,14 +59,23 @@ namespace flappyBird
 			int buttonsSpacing = 50;
 			int buttonsTopMargin = 100;
 
-			menuButton.buttonRect.position = { static_cast<float>(GetScreenWidth()) / 2 - MeasureText(menuButton.text, menuButton.fontSize) / 2 , static_cast<float>(GetScreenHeight()) / 2 + buttonsTopMargin + buttonsSpacing };
+			menuButton.buttonRect.position = 
+			{ 
+				static_cast<float>(GetScreenWidth()) / 2 - MeasureText(menuButton.text, menuButton.fontSize) / 2 , 
+				static_cast<float>(GetScreenHeight()) / 2 + buttonsTopMargin + buttonsSpacing 
+			};
+
 			menuButton.buttonRect.width = static_cast<float>(MeasureText(menuButton.text, menuButton.fontSize));
 			menuButton.buttonRect.height = static_cast<float>(menuButton.fontSize);
 			menuButton.bgColor = DARKGRAY;
 
 			ButtonDraw(menuButton, true);
 
-			restartButton.buttonRect.position = { static_cast<float>(GetScreenWidth()) / 2 - MeasureText(restartButton.text, restartButton.fontSize) / 2, static_cast<float>(GetScreenHeight()) / 2 + buttonsTopMargin - buttonsSpacing };
+			restartButton.buttonRect.position = { 
+				static_cast<float>(GetScreenWidth()) / 2 - MeasureText(restartButton.text, restartButton.fontSize) / 2, 
+				static_cast<float>(GetScreenHeight()) / 2 + buttonsTopMargin - buttonsSpacing 
+			};
+
 			restartButton.buttonRect.width = static_cast<float>(MeasureText(restartButton.text, restartButton.fontSize));
 			restartButton.buttonRect.height = static_cast<float>(restartButton.fontSize);
 			restartButton.bgColor = DARKGRAY;
@@ -75,7 +84,8 @@ namespace flappyBird
 
 			DrawText(title, GetScreenWidth() / 2 - MeasureText(title, titleSize) / 2, titleWindowLimitSpacing, titleSize, WHITE);
 
-			if (isMultiplayer) {
+			if (isMultiplayer)
+			{
 				std::string pointsString = "Player one Points: " + std::to_string(game::playerManager::GetPointsOf(0));
 				const char* pointsText = pointsString.c_str();
 
@@ -98,7 +108,8 @@ namespace flappyBird
 					GREEN
 				);
 			}
-			else {
+			else 
+			{
 				std::string pointsString = "Points: " + std::to_string(game::playerManager::GetPointsOf(0));
 				const char* pointsText = pointsString.c_str();
 
@@ -112,7 +123,8 @@ namespace flappyBird
 			}
 		}
 
-		void RulesDraw() {
+		void RulesDraw()
+		{
 			DrawTexture(
 				utilities::GetTexture(utilities::TextureIdentifier::Rules),
 				0,

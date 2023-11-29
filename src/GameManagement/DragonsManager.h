@@ -1,9 +1,12 @@
 #pragma once
 #include "GameManagement/Utilities.h"
 
-namespace flappyBird {
-	namespace game {
-		namespace dragonsManager {
+namespace flappyBird 
+{
+	namespace game 
+	{
+		namespace dragonsManager 
+		{
 			extern const int DRAGONS_QUANTITY;
 
 			void Start();

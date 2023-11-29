@@ -17,7 +17,8 @@ namespace flappyBird
 		int creditsSize = 30;
 
 		static const int buttonsQty = 4;
-		Button scenesButtons[buttonsQty] = {
+		Button scenesButtons[buttonsQty] = 
+		{
 			{{0,0}, Scenes::Game, "Singleplayer"},
 			{{0,0}, Scenes::MultiplayerGame, "Multiplayer"},
 			{{0,0}, Scenes::Menu,"Credits"},
@@ -40,7 +41,8 @@ namespace flappyBird
 
 	void MenuScene(bool isNewScene, Scenes& actualScene)
 	{
-		if (isNewScene) {
+		if (isNewScene)
+		{
 			MenuStart();
 			
 		}
@@ -61,10 +63,12 @@ namespace flappyBird
 			menuData.creatorItchPageButton.fontSize * 0.1f
 		);
 
-		menuData.creatorItchPageButton.buttonRect = {
+		menuData.creatorItchPageButton.buttonRect = 
+		{
 			{
 				static_cast<float>(GetScreenWidth()) - MeasureText(menuData.createdCredits, menuData.creditsSize) - windowLimitSpacing,
-				static_cast<float>(GetScreenHeight()) - menuData.creditsSize * 2 - windowLimitSpacing},
+				static_cast<float>(GetScreenHeight()) - menuData.creditsSize * 2 - windowLimitSpacing
+			},
 				textSize.y,
 				textSize.x
 		};
@@ -76,7 +80,8 @@ namespace flappyBird
 			menuData.ExtensionItchPageButton.fontSize * 0.1f
 		);
 
-		menuData.ExtensionItchPageButton.buttonRect = {
+		menuData.ExtensionItchPageButton.buttonRect = 
+		{
 			{
 				static_cast<float>(GetScreenWidth()) - MeasureText(menuData.extensionCredits, menuData.creditsSize) - windowLimitSpacing,
 				static_cast<float>(GetScreenHeight()) - menuData.creditsSize - windowLimitSpacing
@@ -88,9 +93,18 @@ namespace flappyBird
 		for (int i = 0; i < menuData.buttonsQty; i++)
 		{
 			textSize = MeasureTextEx(GetFontDefault(), menuData.scenesButtons[i].text, static_cast<float>(menuData.scenesButtons[i].fontSize), menuData.scenesButtons[i].fontSize * 0.1f);
-			menuData.scenesButtons[i].buttonRect = { {windowLimitSpacing, static_cast<float>(GetScreenHeight()) / 3 + i * menuData.scenesButtons[i].fontSize * 1.6f}, textSize.y, textSize.x };
+			menuData.scenesButtons[i].buttonRect = 
+			{ 
+				{
+					windowLimitSpacing, 
+					static_cast<float>(GetScreenHeight()) / 3 + i * menuData.scenesButtons[i].fontSize * 1.6f
+				}, 
+				textSize.y, 
+				textSize.x 
+			};
 		}
 	}
+
 	void MenuUpdate(Scenes& scene)
 	{
 		sfxManager::UpdateMusic(sfxManager::MENU);
@@ -166,7 +180,8 @@ namespace flappyBird
 				 "SOUND: Retro, Drop 02 by MATRIXXX_: https://freesound.org/people/MATRIXXX_/sounds/415990/",
 			};
 
-			for (int i = 0; i < CREDITS_TEXTS_QUANTITY; i++) {
+			for (int i = 0; i < CREDITS_TEXTS_QUANTITY; i++) 
+			{
 				DrawText(
 					credits[i],
 					creditsHorizontalDisplacement,

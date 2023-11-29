@@ -2,9 +2,12 @@
 #include "GameManagement/Utilities.h"
 #include "GameManagement/SfxManager.h"
 
-namespace flappyBird {
-	namespace game {
-		namespace player {
+namespace flappyBird 
+{
+	namespace game 
+	{
+		namespace player 
+		{
 			struct Player
 			{
 				Vector2 pos;
@@ -12,8 +15,8 @@ namespace flappyBird {
 				utilities::TextureIdentifier idleTexture;
 				utilities::TextureIdentifier flyingTexture;
 				sfxManager::SfxName wingsSound;
-
-				Vector2 size{ 50,50 };
+				
+				Vector2 size{ 50, 50 };
 				float colliderRadius{ 20 };
 				float angle{ 0 };
 

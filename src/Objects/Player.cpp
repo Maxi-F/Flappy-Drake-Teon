@@ -1,11 +1,15 @@
 #include "Objects/Player.h"
 
-namespace flappyBird {
-	namespace game {
-		namespace player {
+namespace flappyBird 
+{
+	namespace game 
+	{
+		namespace player 
+		{
 			static const float GRAVITY = 1000.0f;
 
-			void updatePlayer(Player& player) {
+			void updatePlayer(Player& player) 
+			{
 				player.velocity.y += GRAVITY * GetFrameTime();
 
 				if (player.pos.y == 0)
@@ -31,8 +35,10 @@ namespace flappyBird {
 
 				Move(player);
 
-				if (player.pos.y >= GetScreenHeight()) {
-					if (!player.lost) {
+				if (player.pos.y >= GetScreenHeight()) 
+				{
+					if (!player.lost) 
+					{
 						sfxManager::PlaySound(sfxManager::DROP, true);
 					}
 					player.lost = true;
@@ -44,13 +50,28 @@ namespace flappyBird {
 					player.angle += player.rotationSpeed * GetFrameTime();
 			}
 
-			void drawPlayer(Player player) {
+			void drawPlayer(Player player) 
+			{
 				if (player.lost) return;
 				Texture playerTextureToDraw = utilities::GetTexture(player.idleTexture);
 				if (player.isPullingUp)
 					playerTextureToDraw = utilities::GetTexture(player.flyingTexture);
 
-				DrawTexturePro(playerTextureToDraw, { 0,0,64,64 }, { player.pos.x + player.size.x / 2 , player.pos.y + player.size.y / 2, player.size.x, player.size.y }, { player.size.x / 2, player.size.y / 2 }, player.angle, WHITE);
+				DrawTexturePro(
+					playerTextureToDraw, 
+					{ 0, 0, 64, 64 },
+					{ 
+						player.pos.x + player.size.x / 2 ,
+						player.pos.y + player.size.y / 2,
+						player.size.x, player.size.y
+					}, 
+					{ 
+						player.size.x / 2, 
+						player.size.y / 2 
+					}, 
+					player.angle, 
+					WHITE
+				);
 #ifdef _DEBUG
 				DrawCircleLines(static_cast<int>(player.pos.x + player.size.x / 2), static_cast<int>(player.pos.y + player.size.y / 2), player.colliderRadius, GREEN);
 #endif

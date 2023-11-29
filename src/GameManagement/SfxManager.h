@@ -1,9 +1,12 @@
 #pragma once
 #include "GameManagement/Utilities.h"
 
-namespace flappyBird {
-	namespace sfxManager {
-		enum SfxName {
+namespace flappyBird 
+{
+	namespace sfxManager 
+	{
+		enum SfxName 
+		{
 			RED_DRAGON_WINGS = 0,
 			GREEN_DRAGON_WINGS,
 			CLICK,
@@ -12,7 +15,8 @@ namespace flappyBird {
 			SFX_COUNT
 		};
 
-		enum MusicName {
+		enum MusicName 
+		{
 			GAMEPLAY = 0,
 			MENU,
 			MUSIC_COUNT

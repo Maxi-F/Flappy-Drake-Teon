@@ -48,7 +48,8 @@ namespace flappyBird
 
 		}
 
-		void SetIsGameOver(bool value) {
+		void SetIsGameOver(bool value) 
+		{
 			gd.isGameOver = value;
 		}
 

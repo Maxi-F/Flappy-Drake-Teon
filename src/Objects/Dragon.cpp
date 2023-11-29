@@ -2,8 +2,10 @@
 
 #include "GameManagement/TexturesManager.h"
 
-namespace flappyBird {
-	namespace dragon {
+namespace flappyBird 
+{
+	namespace dragon 
+	{
 		void SetStartPosition(Dragon& dragon);
 		void ResetPosition(Dragon& dragon);
 

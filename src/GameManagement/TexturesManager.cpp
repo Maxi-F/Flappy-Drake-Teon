@@ -72,7 +72,8 @@ namespace flappyBird
 			}
 		}
 
-		void UnloadTextures() {
+		void UnloadTextures() 
+		{
 			UnloadTexture(textures.defaultTexture);
 			UnloadTexture(textures.playerIdle);
 			UnloadTexture(textures.playerFlying);

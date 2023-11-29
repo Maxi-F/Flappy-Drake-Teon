@@ -21,8 +21,8 @@ namespace flappyBird
 			bool isInSecondPhase = false;
 
 			int buttonsFontSize = 50;
-			Button restartButton = { {0,0}, Scenes::Game, "Restart" };
-			Button menuButton = { {0,0}, Scenes::Menu, "Main Menu" };
+			Button restartButton = { { 0, 0 }, Scenes::Game, "Restart" };
+			Button menuButton = { { 0, 0 }, Scenes::Menu, "Main Menu" };
 		};
 	}
 }

@@ -19,69 +19,84 @@ namespace flappyBird
 
 		void CheckCollisions(bool isMultiplayer, bool isInSecondPhase)
 		{
-			if (isInSecondPhase) {
+			if (isInSecondPhase) 
+			{
 				CheckSecondPhaseCollisions(isMultiplayer);
 			}
-			else {
+			else 
+			{
 				CheckFirstPhaseCollisions(isMultiplayer);
 			}
 		}
 
 		void CheckSecondPhaseCollisions(bool isMultiplayer) {
 			for (int i = 0; i < dragonsManager::DRAGONS_QUANTITY; i++) {
-				if (isMultiplayer) {
-					for (int j = 0; j < playerManager::MAX_PLAYERS_QUANTITY; j++) {
+				if (isMultiplayer) 
+				{
+					for (int j = 0; j < playerManager::MAX_PLAYERS_QUANTITY; j++) 
+					{
 						if (CheckDragonPlayerCollision(j, i) && !playerManager::PlayerLost(j))
 						{
 							sfxManager::PlaySound(sfxManager::COLLISION, true);
 							playerManager::SetPlayerLost(j);
 						}
-						else if (!playerManager::PlayerLost(j)) {
+						else if (!playerManager::PlayerLost(j)) 
+						{
 							dragonsManager::AddPointToPlayer(j, i);
 						}
 					}
 				}
-				else {
-					if (CheckDragonPlayerCollision(0, i)) {
+				else 
+				{
+					if (CheckDragonPlayerCollision(0, i)) 
+					{
 						sfxManager::PlaySound(sfxManager::COLLISION, true);
 						playerManager::SetPlayerLost(0);
 					}
-					else {
+					else 
+					{
 						dragonsManager::AddPointToPlayer(0, i);
 					}
 				}
 			}
 		}
 
-		void CheckFirstPhaseCollisions(bool isMultiplayer) {
+		void CheckFirstPhaseCollisions(bool isMultiplayer) 
+		{
 			for (int i = 0; i < obstaclesManager::OBSTACLES_QTY; i++)
 			{
-				if (isMultiplayer) {
-					for (int j = 0; j < playerManager::MAX_PLAYERS_QUANTITY; j++) {
+				if (isMultiplayer) 
+				{
+					for (int j = 0; j < playerManager::MAX_PLAYERS_QUANTITY; j++) 
+					{
 						if (CheckCollisionsForPlayer(j, i) && !playerManager::PlayerLost(j))
 						{
 							sfxManager::PlaySound(sfxManager::COLLISION, true);
 							playerManager::SetPlayerLost(j);
 						}
-						else if (!playerManager::PlayerLost(j)) {
+						else if (!playerManager::PlayerLost(j)) 
+						{
 							obstaclesManager::AddPointToPlayer(j, i);
 						}
 					}
 				}
-				else {
+				else 
+				{
 					if (CheckCollisionsForPlayer(0, i))
 					{
 						sfxManager::PlaySound(sfxManager::COLLISION, true);
 						playerManager::SetPlayerLost(0);
 					}
-					else {
+					else 
+					{
 						obstaclesManager::AddPointToPlayer(0, i);
 					}
 				}
 			}
 		}
 
-		bool CheckCollisionsForPlayer(int playerIndex, int colliderIndex) {
+		bool CheckCollisionsForPlayer(int playerIndex, int colliderIndex) 
+		{
 			return CheckCollisionCircleRec(
 				playerManager::GetColliderPositionOf(playerIndex),
 				playerManager::GetRadiusOf(playerIndex),
@@ -94,7 +109,8 @@ namespace flappyBird
 				);
 		}
 
-		bool CheckDragonPlayerCollision(int playerIndex, int dragonIndex) {
+		bool CheckDragonPlayerCollision(int playerIndex, int dragonIndex) 
+		{
 			return CheckCollisionCircleRec(
 				playerManager::GetColliderPositionOf(playerIndex),
 				playerManager::GetRadiusOf(playerIndex),

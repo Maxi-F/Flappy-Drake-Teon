@@ -39,7 +39,8 @@ namespace flappyBird
 		SetRandomSeed(static_cast<unsigned int>(time(nullptr)));
 	}
 
-	void Close() {
+	void Close() 
+	{
 		sfxManager::Unload();
 		utilities::UnloadTextures();
 	}

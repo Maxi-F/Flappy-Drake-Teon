@@ -2,8 +2,10 @@
 #include "GameManagement/Utilities.h"
 #include "GameManagement/Timer.h"
 
-namespace flappyBird {
-	namespace dragon {
+namespace flappyBird 
+{
+	namespace dragon 
+	{
 		static const int MAX_PLAYERS = 2;
 
 		struct Dragon

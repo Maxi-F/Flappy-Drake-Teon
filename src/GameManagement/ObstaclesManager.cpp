@@ -45,9 +45,11 @@ namespace flappyBird
 				Start();
 			}
 
-			void AddPointToPlayer(int playerIndex, int obstacleIndex) {
+			void AddPointToPlayer(int playerIndex, int obstacleIndex) 
+			{
 				int playerPosX = static_cast<int>(playerManager::GetColliderPositionOf(playerIndex).x + playerManager::GetRadiusOf(playerIndex));
-				if (playerPosX >= (obstacles[obstacleIndex].pos.x + obstacles[obstacleIndex].size.x) && !obstacles[obstacleIndex].countedPoint[playerIndex]) {
+				if (playerPosX >= (obstacles[obstacleIndex].pos.x + obstacles[obstacleIndex].size.x) && !obstacles[obstacleIndex].countedPoint[playerIndex]) 
+				{
 					playerManager::AddPointTo(playerIndex);
 					obstacles[obstacleIndex].countedPoint[playerIndex] = true;
 				}

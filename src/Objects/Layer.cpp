@@ -76,10 +76,12 @@ namespace flappyBird
 					layer[i].textureSource.width = static_cast<float>(layer[i].texture.width);
 					layer[i].textureSource.height = static_cast<float>(layer[i].texture.height);
 					
-					if (id != TextureIdentifier::Leaves) {
+					if (id != TextureIdentifier::Leaves) 
+					{
 						layer[i].pos = { layer[i].textureSource.width * i, 0 };
 					}
-					else {
+					else 
+					{
 						const int LEAVES_Y_POSITION = -300;
 						layer[i].pos = { layer[i].textureSource.width * i, LEAVES_Y_POSITION };
 					}
@@ -90,7 +92,8 @@ namespace flappyBird
 			{
 				for (int i = 0; i < LAYERS_ROLL_QTY; i++)
 				{
-					if (layer[i].pos.x <= -GetScreenWidth()) {
+					if (layer[i].pos.x <= -GetScreenWidth()) 
+					{
 						if (i == 0) {
 							layer[i].pos.x = layer[1].pos.x + layer[1].textureSource.width;
 						}
@@ -117,7 +120,8 @@ namespace flappyBird
 				}
 			}
 
-			void DrawTopBackground(int yPosition) {
+			void DrawTopBackground(int yPosition) 
+			{
 				DrawTexture(
 					GetTexture(TextureIdentifier::TopBackground),
 					0,

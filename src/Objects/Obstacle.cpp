@@ -41,9 +41,11 @@ namespace flappyBird
 				SetColliderPosition(obstacle);
 
 
-				if (obstacle.pos.x + obstacle.size.x < 0) {
+				if (obstacle.pos.x + obstacle.size.x < 0) 
+				{
 					obstaclesPassed++;
-					if (obstaclesPassed < maxObstacles) {
+					if (obstaclesPassed < maxObstacles) 
+					{
 						ResetPosition(obstacle);
 					}
 				}
@@ -53,18 +55,21 @@ namespace flappyBird
 			{
 				Texture treeTexture = utilities::GetTexture(utilities::TextureIdentifier::Tree);
 
-				Rectangle source = {
+				Rectangle source = 
+				{
 					0,
 					0,
 					static_cast<float>(treeTexture.width),
 					static_cast<float>(treeTexture.height)
 				};
-				Vector2 origin = {
+				Vector2 origin = 
+				{
 					static_cast<float>(treeTexture.width / 2),
 					static_cast<float>(treeTexture.height / 2)
 				};
 
-				Rectangle dest = {
+				Rectangle dest = 
+				{
 					origin.x + obstacle.pos.x,
 					origin.y,
 					obstacle.upperBoxCollider.width,
@@ -73,13 +78,15 @@ namespace flappyBird
 
 				DrawTexturePro(treeTexture, source, dest, origin, 0, WHITE);
 
-				Vector2 originBottom = {
+				Vector2 originBottom = 
+				{
 					static_cast<float>(obstacle.lowerBoxCollider.width / 2),
 					static_cast<float>(obstacle.lowerBoxCollider.height / 2)
 				};
 
 
-				Rectangle destBottom = {
+				Rectangle destBottom = 
+				{
 					originBottom.x + obstacle.pos.x,
 					originBottom.y + obstacle.lowerBoxCollider.y,
 					obstacle.lowerBoxCollider.width,

@@ -24,7 +24,8 @@ namespace flappyBird
 				players[0].flyingTexture = utilities::TextureIdentifier::PlayerFlying;
 				players[0].wingsSound = sfxManager::RED_DRAGON_WINGS;
 
-				if (isMultiplayer) {
+				if (isMultiplayer) 
+				{
 					player::ResetPos(players[1]);
 					players[1].upKey = KEY_W;
 					players[1].points = 0;
@@ -34,24 +35,29 @@ namespace flappyBird
 					players[1].flyingTexture = utilities::TextureIdentifier::PlayerTwoFlying;
 					players[1].wingsSound = sfxManager::GREEN_DRAGON_WINGS;
 				}
-				else {
+				else 
+				{
 					players[1].lost = true;
 				}
 			}
 
 			void Update(bool isMultiplayer, bool& shouldReset, bool& isPhasingToSecondPhase)
 			{
-				if (isMultiplayer) {
-					for (int i = 0; i < MAX_PLAYERS_QUANTITY; i++) {
+				if (isMultiplayer) 
+				{
+					for (int i = 0; i < MAX_PLAYERS_QUANTITY; i++) 
+					{
 						player::updatePlayer(players[i]);
 					}
 				}
-				else {
+				else 
+				{
 					player::updatePlayer(players[0]);
 				}
 				const int POINTS_TO_SECOND_PHASE = 10;
 
-				if (AnyPlayerHasMoreThan(POINTS_TO_SECOND_PHASE)) {
+				if (AnyPlayerHasMoreThan(POINTS_TO_SECOND_PHASE)) 
+				{
 					isPhasingToSecondPhase = true;
 				}
 
@@ -60,50 +66,65 @@ namespace flappyBird
 
 			void Draw(bool isMultiplayer)
 			{
-				if (isMultiplayer) {
-					for (int i = 0; i < MAX_PLAYERS_QUANTITY; i++) {
+				if (isMultiplayer) 
+				{
+					for (int i = 0; i < MAX_PLAYERS_QUANTITY; i++) 
+					{
 						player::drawPlayer(players[i]);
 					}
 				}
-				else {
+				else 
+				{
 					player::drawPlayer(players[0]);
 				}
 			}
 			
-			Vector2 GetColliderPositionOf(int playerIndex) {
+			Vector2 GetColliderPositionOf(int playerIndex) 
+			{
 				return player::GetColliderPosition(players[playerIndex]);
 			}
 
-			float GetRadiusOf(int playerIndex) {
+			float GetRadiusOf(int playerIndex) 
+			{
 				return player::GetRadius(players[playerIndex]);
 			}
 
-			void AddPointTo(int playerIndex) {
+			void AddPointTo(int playerIndex) 
+			{
 				players[playerIndex].points++;
 			}
 
-			void ResetPoints() {
-				for (int i = 0; i < MAX_PLAYERS_QUANTITY; i++) {
+			void ResetPoints() 
+			{
+				for (int i = 0; i < MAX_PLAYERS_QUANTITY; i++) 
+				{
 					players[i].points = 0;
 				}
 			}
 
-			int GetPointsOf(int playerIndex) {
+			int GetPointsOf(int playerIndex) 
+			{
 				return players[playerIndex].points;
 			}
 
-			bool AnyPlayerHasMoreThan(int points) {
-				for (int i = 0; i < MAX_PLAYERS_QUANTITY; i++) {
-					if (players[i].points > points) {
+			bool AnyPlayerHasMoreThan(int points)
+			{
+				for (int i = 0; i < MAX_PLAYERS_QUANTITY; i++) 
+				{
+					if (players[i].points > points) 
+					{
 						return true;
 					}
 				}
 				return false;
 			}
 
-			bool ShouldReset() {
-				for (int i = 0; i < MAX_PLAYERS_QUANTITY; i++) {
-					if (!players[i].lost) {
+			bool ShouldReset() 
+			{
+				for (int i = 0; i < MAX_PLAYERS_QUANTITY; i++) 
+				{
+					if (!players[i].lost) 
+					{
 						return false;
 					}
 				}
@@ -111,11 +132,13 @@ namespace flappyBird
 				return true;
 			}
 
-			bool PlayerLost(int playerIndex) {
+			bool PlayerLost(int playerIndex)
+			{
 				return players[playerIndex].lost;
 			}
 
-			void SetPlayerLost(int playerIndex) {
+			void SetPlayerLost(int playerIndex)
+			{
 				players[playerIndex].lost = true;
 			}
 		}
