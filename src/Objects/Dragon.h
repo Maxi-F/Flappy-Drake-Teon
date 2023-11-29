@@ -14,7 +14,7 @@ namespace flappyBird
 		{
 			Vector2 pos;
 			Vector2 size = { DRAGON_SIZE, DRAGON_SIZE };
-			Vector2 collisionSize = { DRAGON_COLLISION_SIZE };
+			Vector2 collisionSize = { DRAGON_COLLISION_SIZE, DRAGON_COLLISION_SIZE };
 			Vector2 offset;
 			timer::Timer animationTimer;
 			float animationTime;
