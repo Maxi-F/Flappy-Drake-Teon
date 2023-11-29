@@ -9,6 +9,9 @@ namespace flappyBird
 		namespace obstacle
 		{
 			static const int MAX_PLAYERS = 2;
+			static const float OBSTACLE_VERTICAL_SPEED = 200.0f;
+			static const float OBSTACLE_OPENING_SIZE = 150.0f;
+
 			struct Obstacle
 			{
 				Vector2 pos;
@@ -20,8 +23,8 @@ namespace flappyBird
 
 				bool hasVerticalMovement = false;
 				bool countedPoint[MAX_PLAYERS] = { false, false };
-				float verticalSpeed = 200;
-				const float obstacleOpeningSize = 150;
+				float verticalSpeed = OBSTACLE_VERTICAL_SPEED;
+				const float obstacleOpeningSize = OBSTACLE_OPENING_SIZE;
 				
 				float speed;
 			};

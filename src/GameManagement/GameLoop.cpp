@@ -11,6 +11,7 @@
 
 namespace flappyBird
 {
+	static const Vector2 WINDOW_SIZE = { 1280, 720 };
 
 	void Initialize();
 
@@ -30,7 +31,7 @@ namespace flappyBird
 
 	void Initialize()
 	{
-		InitWindow(1280, 720, "Flappy Drake");
+		InitWindow(static_cast<int>(WINDOW_SIZE.x), static_cast<int>(WINDOW_SIZE.y), "Flappy Drake");
 		InitAudioDevice();
 		SetExitKey(NULL);
 		sceneManager.prevScene = Scenes::GameQuit;

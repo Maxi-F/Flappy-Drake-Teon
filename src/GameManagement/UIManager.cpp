@@ -14,8 +14,8 @@ namespace flappyBird
 			void update() {};
 			void draw(bool isMultiplayer)
 			{
-				int MARGIN = 10;
-				int SIZE = 32;
+				const int MARGIN = 10;
+				const int SIZE = 32;
 				std::string pointsString = "Points: " + std::to_string(playerManager::GetPointsOf(0));
 
 				DrawText(

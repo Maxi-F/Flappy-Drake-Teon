@@ -80,19 +80,24 @@ namespace flappyBird
 			CheckCollisions(gd.isMultiplayer, gd.isInSecondPhase);
 			uiManager::update();
 
-			if (gd.isPhasingToSecondPhase) {
-				gd.yPosition = Clamp(gd.yPosition + 500 * GetFrameTime(), 0, static_cast<float>(utilities::TOP_BACKGROUND_Y_POSITION));
+			if (gd.isPhasingToSecondPhase) 
+			{
+				const int PHASING_VELOCITY = 500;
+				gd.yPosition = Clamp(gd.yPosition + PHASING_VELOCITY * GetFrameTime(), 0, static_cast<float>(utilities::TOP_BACKGROUND_Y_POSITION));
 
-				if (gd.yPosition == utilities::TOP_BACKGROUND_Y_POSITION) {
+				if (gd.yPosition == utilities::TOP_BACKGROUND_Y_POSITION) 
+				{
 					gd.isPhasingToSecondPhase = false;
 					gd.isInSecondPhase = true;
 				}
 			}
 
-			if (gd.isInSecondPhase) {
+			if (gd.isInSecondPhase) 
+			{
 				dragonsManager::Update();
 			}
-			else {
+			else 
+			{
 				obstaclesManager::Update();
 			}
 

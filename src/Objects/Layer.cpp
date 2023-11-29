@@ -113,10 +113,7 @@ namespace flappyBird
 				for (int i = 0; i < LAYERS_ROLL_QTY; i++)
 				{
 					Rectangle dest = { layer[i].pos.x, layer[i].pos.y + yPosition, screenWidth, screenHeight };
-					//Rectangle firstLayerDest = { layer.pos.x, layer.pos.y, screenWidth, screenHeight };
-					//Rectangle secondLayerDest = { layer.pos.x + layer.textureSource.width, layer.pos.y, screenWidth, screenHeight };
 					DrawTexturePro(layer[i].texture, layer[i].textureSource, dest, { 0,0 }, 0, WHITE);
-					//DrawTexturePro(layer[i].texture, layer[i].textureSource, secondLayerDest, { 0,0 }, 0, WHITE);
 				}
 			}
 

@@ -11,15 +11,19 @@ namespace flappyBird
 
 		void Start(Dragon& dragon, float offsetX) 
 		{
+			const int MINIMUM_VELOCITY = 500;
+			const int MAXIMUM_VELOCITY = 1000;
+			const float VELOCITY_ANIMATION_DIVISION_VALUE = 200.0f;
+
 			dragon.offset.x = offsetX;
 			dragon.countedPoint[0] = false;
 			dragon.countedPoint[1] = false;
 			SetStartPosition(dragon);
-			dragon.velocity = static_cast<float>(GetRandomValue(500, 1000));
+			dragon.velocity = static_cast<float>(GetRandomValue(MINIMUM_VELOCITY, MAXIMUM_VELOCITY));
 
 			timer::Timer dragonAnimationTimer;
 			
-			dragon.animationTime = dragon.velocity / 200.0f;
+			dragon.animationTime = dragon.velocity / VELOCITY_ANIMATION_DIVISION_VALUE;
 			timer::StartTimer(&dragonAnimationTimer, dragon.animationTime);
 			dragon.animationTimer = dragonAnimationTimer;
 		};
@@ -51,23 +55,23 @@ namespace flappyBird
 			);
 #endif // _DEBUG
 
-			int sheetPlace = 0;
+			int sheetPlaceMultiplier = 0;
 			double elapsedAnimationTime = timer::GetElapsed(dragon.animationTimer);
 
 			if (elapsedAnimationTime >= dragon.animationTime / 4 && elapsedAnimationTime < dragon.animationTime / 2) {
-				sheetPlace = 1;
+				sheetPlaceMultiplier = 1;
 			}
 			else if (elapsedAnimationTime >= dragon.animationTime / 2 && elapsedAnimationTime < 3 * dragon.animationTime / 4) {
-				sheetPlace = 2;
+				sheetPlaceMultiplier = 2;
 			}
 			else if (elapsedAnimationTime >= 3 * dragon.animationTime && elapsedAnimationTime < dragon.animationTime) {
-				sheetPlace = 3;
+				sheetPlaceMultiplier = 3;
 			}
 
 			Texture dragonTexture = utilities::GetTexture(utilities::TextureIdentifier::BrassDragonSheet);
 
 			Rectangle source = {
-				static_cast<float>(sheetPlace * (dragonTexture.width / 4)),
+				static_cast<float>(sheetPlaceMultiplier * (dragonTexture.width / 4)),
 				0,
 				static_cast<float>(dragonTexture.width / 4),
 				static_cast<float>(dragonTexture.height)
@@ -106,19 +110,24 @@ namespace flappyBird
 			float posY = static_cast<float>(
 				GetRandomValue(
 					0, 
-					static_cast<int>(GetScreenHeight()
-					- dragon.size.y)
-				));
+					static_cast<int>(
+						GetScreenHeight() - dragon.size.y
+					)
+				)
+			);
 			dragon.pos = { static_cast<float>(GetScreenWidth()) + dragon.offset.x, posY };
 		}
 
 		void ResetPosition(Dragon& dragon)
 		{
-			float posY = static_cast<float>(GetRandomValue(
-				0,
-				static_cast<int>(GetScreenHeight()
-					- dragon.size.y)
-			));
+			float posY = static_cast<float>(
+				GetRandomValue(
+					0,
+					static_cast<int>(
+						GetScreenHeight() - dragon.size.y
+					)
+				)
+			);
 			dragon.pos = { static_cast<float>(GetScreenWidth()), posY };
 
 			dragon.countedPoint[0] = false;

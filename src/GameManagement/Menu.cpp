@@ -26,8 +26,8 @@ namespace flappyBird
 
 		};
 
-		Button creatorItchPageButton = { {0,0}, Scenes::Menu, createdCredits, creditsSize };
-		Button ExtensionItchPageButton = { {0,0}, Scenes::Menu, extensionCredits, creditsSize };
+		Button creatorItchPageButton = { { 0, 0 }, Scenes::Menu, createdCredits, creditsSize };
+		Button ExtensionItchPageButton = { { 0, 0 }, Scenes::Menu, extensionCredits, creditsSize };
 
 		bool showCreditsScreen = false;
 		Button closeCredits = { {0,0}, Scenes::Menu,"Close Credits" };
@@ -56,11 +56,12 @@ namespace flappyBird
 		sfxManager::StopAllMusic();
 		sfxManager::PlayMusic(sfxManager::MENU);
 		float windowLimitSpacing = 20;
+		const float SPACING_MULTIPLIER = 0.1f;
 		textSize = MeasureTextEx(
 			GetFontDefault(),
 			menuData.creatorItchPageButton.text,
 			static_cast<float>(menuData.creatorItchPageButton.fontSize),
-			menuData.creatorItchPageButton.fontSize * 0.1f
+			menuData.creatorItchPageButton.fontSize * SPACING_MULTIPLIER
 		);
 
 		menuData.creatorItchPageButton.buttonRect = 
@@ -77,7 +78,7 @@ namespace flappyBird
 			GetFontDefault(),
 			menuData.ExtensionItchPageButton.text,
 			static_cast<float>(menuData.ExtensionItchPageButton.fontSize),
-			menuData.ExtensionItchPageButton.fontSize * 0.1f
+			menuData.ExtensionItchPageButton.fontSize * SPACING_MULTIPLIER
 		);
 
 		menuData.ExtensionItchPageButton.buttonRect = 
@@ -92,7 +93,9 @@ namespace flappyBird
 
 		for (int i = 0; i < menuData.buttonsQty; i++)
 		{
-			textSize = MeasureTextEx(GetFontDefault(), menuData.scenesButtons[i].text, static_cast<float>(menuData.scenesButtons[i].fontSize), menuData.scenesButtons[i].fontSize * 0.1f);
+			textSize = MeasureTextEx(GetFontDefault(), menuData.scenesButtons[i].text, static_cast<float>(menuData.scenesButtons[i].fontSize), menuData.scenesButtons[i].fontSize * SPACING_MULTIPLIER);
+			
+
 			menuData.scenesButtons[i].buttonRect = 
 			{ 
 				{

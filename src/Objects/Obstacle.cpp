@@ -17,12 +17,15 @@ namespace flappyBird
 
 			void Start(Obstacle& obstacle, float offsetX)
 			{
+				const Vector2 OBSTACLE_SIZE = { 60.0f, 180.0f };
+				const float OBSTACLE_SPEED = 500.0f;
+
 				obstacle.offset.x = offsetX;
-				obstacle.size = { 60, 180 };
+				obstacle.size = OBSTACLE_SIZE;
 				obstacle.countedPoint[0] = false;
 				obstacle.countedPoint[1] = false;
 				SetStartPosition(obstacle);
-				obstacle.speed = 500;
+				obstacle.speed = OBSTACLE_SPEED;
 			}
 
 			void Update(Obstacle& obstacle, int& obstaclesPassed, int maxObstacles)
@@ -93,7 +96,9 @@ namespace flappyBird
 					obstacle.lowerBoxCollider.height
 				};
 
-				DrawTexturePro(treeTexture, source, destBottom, originBottom, 180, WHITE);
+				const int UPSIDE_DOWN_ROTATION = 180;
+
+				DrawTexturePro(treeTexture, source, destBottom, originBottom, UPSIDE_DOWN_ROTATION, WHITE);
 #ifdef _DEBUG
 				DrawRectangleLines(static_cast<int>(obstacle.pos.x), 0, static_cast<int>(obstacle.upperBoxCollider.width), static_cast<int>(obstacle.upperBoxCollider.height), GREEN);
 				DrawRectangleLines(static_cast<int>(obstacle.pos.x), static_cast<int>(obstacle.lowerBoxCollider.y), static_cast<int>(obstacle.lowerBoxCollider.width), static_cast<int>(obstacle.lowerBoxCollider.height), GREEN);
@@ -109,11 +114,15 @@ namespace flappyBird
 
 			void ResetPosition(Obstacle& obstacle)
 			{
-				bool doesObstacleMove = GetRandomValue(0, 10) == 0;
+				const float OBSTACLE_MOVES_PROBABILITY = 0.1f;
+				const float GOES_UP_PROBABILITY = 0.5f;
+
+				bool doesObstacleMove = GetRandomValue(1, static_cast<int>(1 / OBSTACLE_MOVES_PROBABILITY)) == 1;
+				
 				if (doesObstacleMove)
 				{
 					obstacle.hasVerticalMovement = true;
-					bool goesUp = GetRandomValue(0, 1) == 1;
+					bool goesUp = GetRandomValue(1, 1 / GOES_UP_PROBABILITY) == 1;
 					if ((goesUp && obstacle.verticalSpeed > 0) || (!goesUp && obstacle.verticalSpeed < 0))
 						obstacle.verticalSpeed *= -1;
 				}

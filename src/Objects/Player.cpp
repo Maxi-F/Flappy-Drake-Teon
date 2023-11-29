@@ -52,6 +52,8 @@ namespace flappyBird
 
 			void drawPlayer(Player player) 
 			{
+				const int PLAYER_SPRITE_SIZE = 64;
+
 				if (player.lost) return;
 				Texture playerTextureToDraw = utilities::GetTexture(player.idleTexture);
 				if (player.isPullingUp)
@@ -59,7 +61,7 @@ namespace flappyBird
 
 				DrawTexturePro(
 					playerTextureToDraw, 
-					{ 0, 0, 64, 64 },
+					{ 0, 0, PLAYER_SPRITE_SIZE, PLAYER_SPRITE_SIZE },
 					{ 
 						player.pos.x + player.size.x / 2 ,
 						player.pos.y + player.size.y / 2,
@@ -89,14 +91,16 @@ namespace flappyBird
 
 			void ResetPos(Player& player)
 			{
-				player.pos = { 50, static_cast<float>(GetScreenHeight()) / 2 };
+				const float PLAYER_X_INIT_POSITION = 50.0f;
+
+				player.pos = { PLAYER_X_INIT_POSITION, static_cast<float>(GetScreenHeight()) / 2 };
 				player.velocity.y = 0;
 				player.angle = 0;
 			}
 
 			void Move(Player& player)
 			{
-				Vector2 playerMinPos = { player.pos.x,0 };
+				Vector2 playerMinPos = { player.pos.x, 0 };
 				Vector2 playerMaxPos = { player.pos.x, static_cast<float>(GetScreenHeight()) };
 				player.pos = Vector2Clamp(Vector2Add(player.pos, Vector2Scale(player.velocity, GetFrameTime())), playerMinPos, playerMaxPos);
 			}

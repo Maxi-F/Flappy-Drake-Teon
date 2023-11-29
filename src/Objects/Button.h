@@ -4,6 +4,10 @@
 
 namespace flappyBird
 {
+	static const int BUTTON_FONT_SIZE = 70;
+	static const float TEXT_HEIGHT_SPACER_MULTIPLIER = 2.25f;
+	static const float TEXT_POSITION_X = 15.0f;
+
 	struct Button
 	{
 		utilities::Rect buttonRect;
@@ -15,8 +19,8 @@ namespace flappyBird
 		Color bgColor = BLACK;
 		Color currentBgColor = BLACK;
 
-		float textHeightSpacerMultiplier = 2.25f;
-		float textPositionX = 15;
+		float textHeightSpacerMultiplier = TEXT_HEIGHT_SPACER_MULTIPLIER;
+		float textPositionX = TEXT_POSITION_X;
 
 		bool wasPressed{ false };
 	};

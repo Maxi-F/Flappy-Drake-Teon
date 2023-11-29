@@ -15,11 +15,13 @@ namespace flappyBird
 		
 			void Start() 
 			{
+				const int MAX_OFFSET = 100;
+
 				float offset = static_cast<float>(GetScreenWidth()) / 2;
 
 				for (int i = 0; i < DRAGONS_QUANTITY; i++) 
 				{
-					dragon::Start(dragons[i], offset + GetRandomValue(0, 100) * i);
+					dragon::Start(dragons[i], offset + GetRandomValue(0, MAX_OFFSET) * i);
 				}
 			};
 

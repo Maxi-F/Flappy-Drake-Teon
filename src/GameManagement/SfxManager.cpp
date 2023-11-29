@@ -29,9 +29,12 @@ namespace flappyBird
 			SfxWithName bonk = { COLLISION, LoadSound("assets/Sounds/bonk.wav") };
 			SfxWithName drop = { DROP, LoadSound("assets/Sounds/drop.wav") };
 
-			SetSoundVolume(redDragonWings.sound, 0.1f);
-			SetSoundVolume(greenDragonWings.sound, 0.1f);
-			SetSoundVolume(drop.sound, 0.2f);
+			const float WINGS_SOUND_VOLUME = 0.1f;
+			const float DROP_SOUND_VOLUME = 0.2f;
+
+			SetSoundVolume(redDragonWings.sound, WINGS_SOUND_VOLUME);
+			SetSoundVolume(greenDragonWings.sound, WINGS_SOUND_VOLUME);
+			SetSoundVolume(drop.sound, DROP_SOUND_VOLUME);
 
 			SfxWithName auxSfxs[SFX_COUNT] = 
 			{

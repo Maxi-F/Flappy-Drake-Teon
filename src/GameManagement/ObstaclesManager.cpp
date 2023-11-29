@@ -12,7 +12,7 @@ namespace flappyBird
 
 			static float offset = 0;
 			static int obstaclesPassed = 0;
-			static const int MAX_OBSTACLES = 10;
+			static const int MAX_OBSTACLES_RESETS = 9;
 
 			void Start()
 			{
@@ -28,7 +28,7 @@ namespace flappyBird
 			{
 				for (int i = 0; i < OBSTACLES_QTY; i++)
 				{
-					obstacle::Update(obstacles[i], obstaclesPassed, MAX_OBSTACLES);
+					obstacle::Update(obstacles[i], obstaclesPassed, MAX_OBSTACLES_RESETS);
 				}
 			}
 

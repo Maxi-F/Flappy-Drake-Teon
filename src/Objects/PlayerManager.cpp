@@ -111,7 +111,7 @@ namespace flappyBird
 			{
 				for (int i = 0; i < MAX_PLAYERS_QUANTITY; i++) 
 				{
-					if (players[i].points > points) 
+					if (players[i].points >= points) 
 					{
 						return true;
 					}
